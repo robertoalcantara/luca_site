@@ -1,0 +1,72 @@
+╔════════════════════════════════════════════════════════════════╗
+║   LUCA DIAS SITE - ÚLTIMA ETAPA: PUSH PARA GITHUB               ║
+╚════════════════════════════════════════════════════════════════╝
+
+✅ O QUE JÁ FOI FEITO:
+
+  ✓ Arquivo renomeado para index.html
+  ✓ Pasta uploads/ removida
+  ✓ .gitignore e README.md criados
+  ✓ Repositório git inicializado
+  ✓ Primeiro commit realizado (89cc708)
+
+📋 PRÓXIMAS AÇÕES:
+
+1. EXECUTAR O SCRIPT (Windows PowerShell)
+
+   - Clique com botão direito em PUSH_GITHUB.ps1
+   - Selecione "Executar com PowerShell"
+
+   OU abra o PowerShell e execute:
+
+   Set-ExecutionPolicy -ExecutionScope Process -Force
+   .\PUSH_GITHUB.ps1
+
+2. CREDENCIAIS DO GITHUB
+
+   Você será solicitado a entrar com suas credenciais:
+   - Usuário: robertoalcantara
+   - Senha: Use um Personal Access Token (PAT) em vez de senha
+
+   Como criar um PAT:
+   https://github.com/settings/tokens
+
+   Permissões necessárias:
+   - repo (full control)
+   - workflow
+
+3. RESULTADO
+
+   Se tudo der certo:
+   - Repositório criado em GitHub
+   - URL: https://github.com/robertoalcantara/luca_site
+
+4. ATIVAR GITHUB PAGES (Opcional)
+
+   Para publicar o site online:
+
+   a) Vá para: https://github.com/robertoalcantara/luca_site/settings/pages
+
+   b) Em "Source", selecione:
+      - Branch: main
+      - Folder: / (root)
+
+   c) Clique "Save"
+
+   d) Aguarde ~1 minuto
+
+   e) Seu site estará em:
+      https://robertoalcantara.github.io/luca_site/
+
+═══════════════════════════════════════════════════════════════════
+
+⚠️  IMPORTANTE:
+    Se o script falhar, verifique:
+    - Conexão com a internet
+    - Credenciais do GitHub corretas
+    - Permissões de execução no PowerShell
+
+═══════════════════════════════════════════════════════════════════
+
+Dúvidas? Veja SETUP_GITHUB.md para mais detalhes!
+

@@ -1,0 +1,23 @@
+# Sistema e IDE
+.DS_Store
+.env
+.env.local
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Arquivos de impressão e cache
+*.dc-print.html
+.thumbnail
+
+# Uploads (usar assets/ em vez disso)
+uploads/
+
+# Node modules (se usar no futuro)
+node_modules/
+npm-debug.log
+
+# Logs
+*.log

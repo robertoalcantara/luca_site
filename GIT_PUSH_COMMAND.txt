@@ -1,0 +1,11 @@
+# Execute este comando no Windows (em Git Bash ou CMD):
+
+cd C:\Users\roberto\Downloads\luca_site
+git push -u origin main
+
+# Ou se já está no diretório:
+git push -u origin main
+
+# Credenciais:
+# Usuário: robertoalcantara
+# Senha: [seu Personal Access Token do GitHub]

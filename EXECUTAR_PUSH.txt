@@ -1,0 +1,83 @@
+════════════════════════════════════════════════════════════════
+  LUCA DIAS SITE - PUSH PARA GITHUB (WINDOWS)
+════════════════════════════════════════════════════════════════
+
+✓ ARQUIVOS JÁ PREPARADOS:
+  - index.html (renomeado)
+  - assets/ (21 imagens)
+  - README.md
+  - .gitignore
+  - push.bat (script pronto)
+
+════════════════════════════════════════════════════════════════
+OPÇÃO 1: EXECUTAR SCRIPT (MAIS FÁCIL)
+════════════════════════════════════════════════════════════════
+
+1. Clique com botão direito no arquivo "push.bat"
+2. Selecione "Executar como administrador"
+3. Aguarde completar
+
+Ou abra CMD e execute:
+  cd C:\Users\roberto\Downloads\luca_site
+  push.bat
+
+════════════════════════════════════════════════════════════════
+OPÇÃO 2: EXECUTAR MANUALMENTE (GIT BASH ou CMD)
+════════════════════════════════════════════════════════════════
+
+1. Abra Git Bash ou CMD
+2. Navegue até a pasta:
+   cd C:\Users\roberto\Downloads\luca_site
+
+3. Execute os comandos:
+   git config user.name "Roberto Alcantara"
+   git config user.email "robertoalcantara@gmail.com"
+   git remote remove origin
+   git remote add origin https://github.com/robertoalcantara/luca_site.git
+   git branch -M main
+   git push -u origin main
+
+════════════════════════════════════════════════════════════════
+CREDENCIAIS DO GITHUB
+════════════════════════════════════════════════════════════════
+
+Quando pedir:
+- Usuário: robertoalcantara
+- Senha: USE SEU PERSONAL ACCESS TOKEN (não a senha normal)
+
+Como gerar PAT:
+https://github.com/settings/tokens
+(Selecione permissão "repo")
+
+════════════════════════════════════════════════════════════════
+APÓS O PUSH
+════════════════════════════════════════════════════════════════
+
+1. Acesse:
+   https://github.com/robertoalcantara/luca_site
+
+2. Vá em Settings → Pages
+
+3. Configure:
+   - Branch: main
+   - Folder: / (root)
+
+4. Clique Save
+
+5. Seu site estará em:
+   https://robertoalcantara.github.io/luca_site/
+
+════════════════════════════════════════════════════════════════
+DÚVIDAS?
+════════════════════════════════════════════════════════════════
+
+Erro: "fatal: Authentication failed"
+→ Verifique se o PAT está correto (copie e cole, não digite)
+
+Erro: "could not resolve host"
+→ Verifique sua conexão de internet
+
+Erro: "refused to merge unrelated histories"
+→ Adicione: git push -u origin main --force
+
+════════════════════════════════════════════════════════════════

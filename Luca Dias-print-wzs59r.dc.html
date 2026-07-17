@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+  <style>
+    html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+    body { margin:0; background:#0c0c0d; }
+    ::selection { background:#e5231b; color:#fff; }
+    [data-hscroll]::-webkit-scrollbar { display:none; }
+    @keyframes heroZoom { from { transform:scale(1.12); } to { transform:scale(1); } }
+    @keyframes heroFadeUp { from { opacity:0; transform:translateY(36px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes heroLine { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    [data-autoscroll-y]::-webkit-scrollbar, [data-autoscroll-x]::-webkit-scrollbar { display:none; }
+  </style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="background:#0c0c0d; color:#f4f2f0; font-family:'Manrope',sans-serif; width:100%; overflow-x:hidden;">
+
+  <!-- NAV -->
+  <div style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px 6vw; background:linear-gradient(180deg, rgba(12,12,13,0.9), rgba(12,12,13,0));">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <img src="assets/logo-ld30-dark.png" alt="LD30" style="height:80px; width:auto; display:block;">
+    </div>
+    <div style="display:flex; gap:28px; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600;">
+      <a href="#sec-resultados" style="color:#f4f2f0; text-decoration:none; opacity:0.85;">Resultados</a>
+      <a href="#sec-galeria" style="color:#f4f2f0; text-decoration:none; opacity:0.85;">Galeria</a>
+      <a href="https://instagram.com/lucadias30" target="_blank" style="color:{{ igColor }}; text-decoration:none;">@lucadias30</a>
+    </div>
+  </div>
+
+  <!-- SCROLLSPY DOTS -->
+  <div style="position:fixed; right:28px; top:50%; transform:translateY(-50%); z-index:50; display:flex; flex-direction:column; gap:14px;">
+    <a href="#sec-hero" style="width:9px; height:9px; border-radius:50%; background:{{ dotHero }}; transition:all 0.35s ease; transform:{{ scaleHero }};"></a>
+    <a href="#sec-resultados" style="width:9px; height:9px; border-radius:50%; background:{{ dotResultados }}; transition:all 0.35s ease; transform:{{ scaleResultados }};"></a>
+    <a href="#sec-galeria" style="width:9px; height:9px; border-radius:50%; background:{{ dotGaleria }}; transition:all 0.35s ease; transform:{{ scaleGaleria }};"></a>
+  </div>
+
+  <!-- HERO -->
+  <div id="sec-hero" data-section="hero" data-screen-label="Hero" style="scroll-snap-align:start; position:relative; height:100vh; min-height:640px; width:100%; display:flex; align-items:flex-end;">
+    <img src="assets/hero-front.jpeg" alt="Luca Dias pilotando" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 35%; animation:heroZoom 2.4s cubic-bezier(0.2,0.6,0.2,1) both;">
+    <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(12,12,13,0.97) 5%, rgba(12,12,13,0.15) 55%, rgba(12,12,13,0.55) 100%);"></div>
+    <div style="position:relative; z-index:2; padding:0 6vw 7vw; width:100%; box-sizing:border-box;">
+      <div style="font-size:{{ kickerSize }}; letter-spacing:{{ kickerLS }}; text-transform:uppercase; color:{{ accent }}; font-weight:700; margin-bottom:14px; background:{{ kickerBg }}; padding:{{ kickerPad }}; border-radius:{{ kickerRadius }}; display:{{ kickerDisplay }}; animation:heroLine 0.9s cubic-bezier(0.2,0.6,0.2,1) 0.3s both;">Piloto Cadete &nbsp;·&nbsp; Nº 30</div>
+      <h1 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:{{ heroSize }}; line-height:{{ heroLH }}; margin:0; text-transform:uppercase; color:#f4f2f0; animation:heroFadeUp 1s cubic-bezier(0.2,0.6,0.2,1) 0.45s both;">LUCA<br>DIAS</h1>
+      <div style="display:flex; gap:40px; margin-top:28px; flex-wrap:wrap; animation:heroLine 0.9s cubic-bezier(0.2,0.6,0.2,1) 0.75s both;">
+        <div>
+          <div style="font-size:12px; letter-spacing:2px; text-transform:uppercase; opacity:0.6;">Idade</div>
+          <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:{{ statSize }};">9 anos</div>
+        </div>
+        <div>
+          <div style="font-size:12px; letter-spacing:2px; text-transform:uppercase; opacity:0.6;">Categoria</div>
+          <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:{{ statSize }};">Cadete</div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; animation:heroLine 0.9s cubic-bezier(0.2,0.6,0.2,1) 0.85s both;">
+        <div style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.5; margin-bottom:8px;">Campeonatos em disputa</div>
+        <div style="display:flex; flex-direction:column; gap:8px; max-width:260px;">
+          <sc-for list="{{ standings }}" as="s" hint-placeholder-count="2">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; border-top:1px solid rgba(244,242,240,0.12); padding-top:8px;">
+              <div style="font-size:13px; font-weight:600;">{{ s.champ }}</div>
+              <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:20px; color:{{ s.color }};">{{ s.result }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(244,242,240,0.15); animation:heroLine 0.9s cubic-bezier(0.2,0.6,0.2,1) 0.95s both;">
+        <div style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.5; margin-bottom:8px; text-align:left;">Histórico da carreira</div>
+        <div style="display:flex; gap:28px; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.55;">Vitórias</div>
+          <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:26px; color:#FFD700;">{{ countP1 }}<span style="font-size:15px; color:rgba(244,242,240,0.55);">/{{ totalRaces }}</span></div>
+        </div>
+        <div>
+          <div style="font-size:10px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.55;">Pole positions</div>
+          <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:26px;">{{ countPole }}<span style="font-size:15px; color:rgba(244,242,240,0.55);">/{{ totalQualy }}</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.6; animation:heroLine 0.9s ease 1.2s both;">
+      <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase;">Rolar</div>
+      <div style="width:1px; height:28px; background:#f4f2f0;"></div>
+    </div>
+  </div>
+
+  <!-- RESULTADOS -->
+  <div id="sec-resultados" data-section="resultados" data-screen-label="Resultados" data-reveal="" style="scroll-snap-align:start; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; opacity:0; transform:translateY(48px); transition:opacity 0.9s cubic-bezier(0.2,0.6,0.2,1), transform 0.9s cubic-bezier(0.2,0.6,0.2,1); padding:{{ padTight }}; background:#141415;">
+    <div style="max-width:1100px; margin:0 auto; width:100%;">
+      <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0s; font-size:{{ kickerSize }}; letter-spacing:{{ kickerLS }}; text-transform:uppercase; color:{{ accent }}; font-weight:700; margin-bottom:16px;">Resultados</div>
+      <h2 data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.1s; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,3.6vw,46px); line-height:1.05; margin:0 0 44px; text-transform:uppercase;">Linha do tempo</h2>
+
+      <sc-if value="{{ isTimelineLayout }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-direction:column; gap:26px;">
+          <div style="position:relative; background:linear-gradient(135deg, rgba(229,35,27,0.09), rgba(244,242,240,0.03)); border:1px solid {{ featured.dotRing }}; border-radius:{{ radius }}; padding:28px 30px;">
+            <sc-if value="{{ featured.isChampion }}" hint-placeholder-val="{{ false }}">
+              <div style="display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg, #FFD700, #C9A227); color:#141415; border-radius:{{ badgeRadius }}; padding:5px 13px; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#141415"><path d="{{ trophyPath }}"></path></svg>
+                Campeão do Campeonato
+              </div>
+            </sc-if>
+            <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; opacity:0.5; font-weight:700; margin-bottom:8px;">Último resultado &nbsp;·&nbsp; {{ featured.monthAbbr }} {{ featured.year }}</div>
+            <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;">
+              <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:24px; text-transform:uppercase;">{{ featured.champ }}</div>
+              <div style="display:flex; align-items:center; gap:7px;">
+                <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:28px; color:{{ featured.resultColor }};">{{ featured.resultLabel }}</div>
+                <sc-if value="{{ featured.hasTrophy }}" hint-placeholder-val="{{ false }}">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="{{ featured.trophyColor }}"><path d="{{ trophyPath }}"></path></svg>
+                </sc-if>
+              </div>
+            </div>
+            <div style="font-size:12.5px; opacity:0.45; margin-bottom:16px;">{{ featured.local }} &nbsp;·&nbsp; {{ featured.category }}</div>
+            <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:14px;">
+              <sc-for list="{{ featured.badges }}" as="b" hint-placeholder-count="4">
+                <span title="{{ b.tooltip }}" style="background:{{ b.bg }}; border:1px solid {{ b.border }}; border-radius:{{ badgeRadius }}; padding:4px 11px; font-size:12px; font-weight:600; cursor:default;">{{ b.label }} <span style="color:{{ b.color }};">{{ b.value }}</span></span>
+              </sc-for>
+            </div>
+            <sc-if value="{{ featured.obs }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:12px; opacity:0.45; font-style:italic; margin-bottom:14px;">{{ featured.obs }}</div>
+            </sc-if>
+            <sc-if value="{{ featured.hasFewPhotos }}" hint-placeholder-val="{{ false }}">
+              <div data-hscroll="" style="display:flex; gap:8px; overflow-x:auto;">
+                <sc-for list="{{ featured.photos }}" as="p">
+                  <div onclick="{{ openLightbox }}" data-src="{{ p.bg }}" style="flex:0 0 96px; height:70px; border-radius:4px; cursor:pointer; background-image:{{ p.bg }}; background-size:cover; background-position:center;"></div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ featured.hasManyPhotos }}" hint-placeholder-val="{{ false }}">
+              <div style="-webkit-mask-image:linear-gradient(to right, transparent, black 4%, black 96%, transparent); mask-image:linear-gradient(to right, transparent, black 4%, black 96%, transparent);">
+                <div data-autoscroll-x="" data-hscroll="" style="display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;">
+                  <sc-for list="{{ featured.photosLoop }}" as="p" hint-placeholder-count="6">
+                    <div onclick="{{ openLightbox }}" data-src="{{ p.bg }}" style="flex:0 0 96px; height:70px; border-radius:4px; cursor:pointer; background-image:{{ p.bg }}; background-size:cover; background-position:center;"></div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+
+          <sc-if value="{{ hasRest }}" hint-placeholder-val="{{ true }}">
+            <div data-autoscroll-y="" style="position:relative; height:320px; overflow-y:auto; scrollbar-width:none; -webkit-mask-image:linear-gradient(to bottom, transparent, black 8%, black 92%, transparent); mask-image:linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);">
+              <div style="display:flex; flex-direction:column;">
+                <sc-for list="{{ rest }}" as="r" hint-placeholder-count="6">
+                  <sc-if value="{{ r.isMilestone }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex; align-items:center; gap:16px; padding:16px 4px; border-top:1px solid rgba(244,242,240,0.1);">
+                      <div style="width:56px; flex:0 0 56px; text-align:right;">
+                        <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:18px; line-height:1;">{{ r.monthAbbr }}</div>
+                        <div style="font-size:10px; opacity:0.4;">{{ r.year }}</div>
+                      </div>
+                      <div style="flex:1; display:flex; align-items:center; gap:14px; background:linear-gradient(135deg, rgba(255,215,0,0.16), rgba(255,215,0,0.03)); border:1px solid rgba(255,215,0,0.4); border-radius:{{ radius }}; padding:10px 16px; flex-wrap:wrap;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="#FFD700"><path d="{{ trophyPath }}"></path></svg>
+                        <div style="flex:1; min-width:120px;">
+                          <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:15px; text-transform:uppercase; color:#FFD700;">{{ r.title }}</div>
+                          <div style="font-size:11px; opacity:0.55;">{{ r.champ }} &nbsp;·&nbsp; {{ r.local }}</div>
+                        </div>
+                        <sc-if value="{{ r.hasPhotos }}" hint-placeholder-val="{{ false }}">
+                          <div data-hscroll="" style="display:flex; gap:6px; overflow-x:auto; max-width:200px;">
+                            <sc-for list="{{ r.photos }}" as="p">
+                              <div onclick="{{ openLightbox }}" data-src="{{ p.bg }}" style="flex:0 0 52px; height:38px; border-radius:4px; cursor:pointer; background-image:{{ p.bg }}; background-size:cover; background-position:center;"></div>
+                            </sc-for>
+                          </div>
+                        </sc-if>
+                      </div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ r.isRace }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:flex; flex-direction:column; gap:8px; padding:16px 4px; border-top:1px solid rgba(244,242,240,0.1);">
+                    <div style="display:flex; align-items:center; gap:16px;">
+                      <div style="width:56px; flex:0 0 56px; text-align:right;">
+                        <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:18px; line-height:1;">{{ r.monthAbbr }}</div>
+                        <div style="font-size:10px; opacity:0.4;">{{ r.year }}</div>
+                      </div>
+                      <div style="width:11px; height:11px; border-radius:50%; background:{{ r.dotBg }}; flex:0 0 11px;"></div>
+                      <div style="flex:1; min-width:0;">
+                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                          <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:800; font-size:14px; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.champ }}</div>
+                          <sc-if value="{{ r.isChampion }}" hint-placeholder-val="{{ false }}">
+                            <span style="display:inline-flex; align-items:center; gap:4px; background:linear-gradient(135deg, #FFD700, #C9A227); color:#141415; border-radius:{{ badgeRadius }}; padding:2px 8px; font-size:9px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; white-space:nowrap;">
+                              <svg viewBox="0 0 24 24" width="10" height="10" fill="#141415"><path d="{{ trophyPath }}"></path></svg>
+                              Campeão
+                            </span>
+                          </sc-if>
+                        </div>
+                        <div style="font-size:11px; opacity:0.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ r.local }}</div>
+                      </div>
+                      <sc-if value="{{ r.hasPhotos }}" hint-placeholder-val="{{ false }}">
+                        <div onclick="{{ openLightbox }}" data-src="{{ r.photos.0.bg }}" style="flex:0 0 52px; height:38px; border-radius:4px; cursor:pointer; background-image:{{ r.photos.0.bg }}; background-size:cover; background-position:center;"></div>
+                      </sc-if>
+                      <div style="display:flex; align-items:center; gap:5px; flex:0 0 auto;">
+                        <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:16px; color:{{ r.resultColor }};">{{ r.resultLabel }}</div>
+                        <sc-if value="{{ r.hasTrophy }}" hint-placeholder-val="{{ false }}">
+                          <svg viewBox="0 0 24 24" width="15" height="15" fill="{{ r.trophyColor }}"><path d="{{ trophyPath }}"></path></svg>
+                        </sc-if>
+                      </div>
+                    </div>
+                    <div style="display:flex; gap:6px; flex-wrap:wrap; padding-left:82px;">
+                      <sc-for list="{{ r.badges }}" as="b" hint-placeholder-count="3">
+                        <span title="{{ b.tooltip }}" style="background:{{ b.bg }}; border:1px solid {{ b.border }}; border-radius:{{ badgeRadius }}; padding:2px 8px; font-size:10px; font-weight:600; cursor:default;">{{ b.label }} <span style="color:{{ b.color }};">{{ b.value }}</span></span>
+                      </sc-for>
+                    </div>
+                  </div>
+                  </sc-if>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isGridLayout }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px; max-height:58vh; overflow-y:auto; padding:4px;">
+          <sc-for list="{{ rest }}" as="r" hint-placeholder-count="3">
+            <sc-if value="{{ r.isMilestone }}" hint-placeholder-val="{{ false }}">
+              <div style="grid-column:1/-1; display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:linear-gradient(135deg, rgba(255,215,0,0.16), rgba(255,215,0,0.03)); border:1px solid rgba(255,215,0,0.4); border-radius:{{ radius }}; padding:16px 20px;">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#FFD700"><path d="{{ trophyPath }}"></path></svg>
+                <div style="flex:1; min-width:160px;">
+                  <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:16px; text-transform:uppercase; color:#FFD700;">{{ r.title }}</div>
+                  <div style="font-size:11px; opacity:0.55;">{{ r.champ }} &nbsp;·&nbsp; {{ r.local }} &nbsp;·&nbsp; {{ r.monthAbbr }} {{ r.year }}</div>
+                </div>
+                <sc-if value="{{ r.hasPhotos }}" hint-placeholder-val="{{ false }}">
+                  <div data-hscroll="" style="display:flex; gap:6px; overflow-x:auto;">
+                    <sc-for list="{{ r.photos }}" as="p">
+                      <div onclick="{{ openLightbox }}" data-src="{{ p.bg }}" style="flex:0 0 60px; height:44px; border-radius:4px; cursor:pointer; background-image:{{ p.bg }}; background-size:cover; background-position:center;"></div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-if>
+            <sc-if value="{{ r.isRace }}" hint-placeholder-val="{{ true }}">
+            <div style="background:#1c1c1d; border-radius:{{ radius }}; padding:22px; display:flex; flex-direction:column; gap:10px;">
+              <sc-if value="{{ r.isChampion }}" hint-placeholder-val="{{ false }}">
+                <div style="display:inline-flex; align-items:center; gap:5px; background:linear-gradient(135deg, #FFD700, #C9A227); color:#141415; border-radius:{{ badgeRadius }}; padding:3px 9px; font-size:10px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; align-self:flex-start;">
+                  <svg viewBox="0 0 24 24" width="11" height="11" fill="#141415"><path d="{{ trophyPath }}"></path></svg>
+                  Campeão do Campeonato
+                </div>
+              </sc-if>
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                <div style="font-size:11px; letter-spacing:1px; opacity:0.45; text-transform:uppercase;">{{ r.monthAbbr }} {{ r.year }}</div>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:22px; color:{{ r.resultColor }};">{{ r.resultLabel }}</div>
+                  <sc-if value="{{ r.hasTrophy }}" hint-placeholder-val="{{ false }}">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="{{ r.trophyColor }}"><path d="{{ trophyPath }}"></path></svg>
+                  </sc-if>
+                </div>
+              </div>
+              <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:17px; text-transform:uppercase;">{{ r.champ }}</div>
+              <div style="font-size:11.5px; opacity:0.4;">{{ r.local }} &nbsp;·&nbsp; {{ r.category }}</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <sc-for list="{{ r.badges }}" as="b" hint-placeholder-count="4">
+                  <span title="{{ b.tooltip }}" style="background:{{ b.bg }}; border:1px solid {{ b.border }}; border-radius:{{ badgeRadius }}; padding:3px 9px; font-size:11px; font-weight:600; cursor:default;">{{ b.label }} <span style="color:{{ b.color }};">{{ b.value }}</span></span>
+                </sc-for>
+              </div>
+              <sc-if value="{{ r.obs }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:11px; opacity:0.4; font-style:italic;">{{ r.obs }}</div>
+              </sc-if>
+              <sc-if value="{{ r.hasPhotos }}" hint-placeholder-val="{{ false }}">
+                <div data-hscroll="" style="display:flex; gap:6px; overflow-x:auto;">
+                  <sc-for list="{{ r.photos }}" as="p">
+                    <div onclick="{{ openLightbox }}" data-src="{{ p.bg }}" style="flex:0 0 60px; height:44px; border-radius:4px; cursor:pointer; background-image:{{ p.bg }}; background-size:cover; background-position:center;"></div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+            </sc-if>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <div style="margin-top:16px; font-size:12px; opacity:0.4;">Nosso histórico de competições oficiais &nbsp;·&nbsp; toque em uma foto para ampliar</div>
+    </div>
+  </div>
+
+  <sc-if value="{{ hasLightbox }}" hint-placeholder-val="{{ false }}">
+    <div onclick="{{ closeLightbox }}" style="position:fixed; inset:0; z-index:100; background:rgba(12,12,13,0.95); display:flex; align-items:center; justify-content:center; padding:40px; cursor:zoom-out; animation:heroLine 0.25s ease both;">
+      <div style="width:90vw; height:88vh; background-image:{{ lightboxBg }}; background-size:contain; background-repeat:no-repeat; background-position:center;"></div>
+      <div onclick="{{ closeLightbox }}" style="position:absolute; top:28px; right:32px; width:40px; height:40px; border-radius:50%; background:rgba(244,242,240,0.1); display:flex; align-items:center; justify-content:center; font-size:20px; cursor:pointer;">✕</div>
+    </div>
+  </sc-if>
+
+  <!-- GALERIA -->
+  <div id="sec-galeria" data-section="galeria" data-screen-label="Galeria" data-reveal="" style="scroll-snap-align:start; min-height:100vh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; opacity:0; transform:translateY(48px); transition:opacity 0.9s cubic-bezier(0.2,0.6,0.2,1), transform 0.9s cubic-bezier(0.2,0.6,0.2,1); padding:{{ padWide }}; max-width:1400px; margin:0 auto;">
+    <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0s; font-size:{{ kickerSize }}; letter-spacing:{{ kickerLS }}; text-transform:uppercase; color:{{ accent }}; font-weight:700; margin-bottom:16px;">Galeria</div>
+    <h2 data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.1s; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(30px,4vw,52px); line-height:1.05; margin:0 0 50px; text-transform:uppercase;">Direto da pista</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:180px; gap:16px;">
+      <img src="assets/action-1.jpeg" style="grid-column:span 3; grid-row:span 2; width:100%; height:100%; object-fit:cover; border-radius:{{ radius }}; transition:transform 0.5s ease;">
+      <img src="assets/portrait-1.jpeg" style="grid-column:span 3; grid-row:span 2; width:100%; height:100%; object-fit:cover; border-radius:{{ radius }}; transition:transform 0.5s ease;">
+      <img src="assets/podium-2.jpeg" style="grid-column:span 2; grid-row:span 1; width:100%; height:100%; object-fit:cover; border-radius:{{ radius }}; transition:transform 0.5s ease;">
+      <img src="assets/podium-1.jpeg" style="grid-column:span 2; grid-row:span 1; width:100%; height:100%; object-fit:cover; border-radius:{{ radius }}; transition:transform 0.5s ease;">
+      <img src="assets/action-2.jpeg" style="grid-column:span 2; grid-row:span 1; width:100%; height:100%; object-fit:cover; border-radius:{{ radius }}; object-position:60% 30%; transition:transform 0.5s ease;">
+    </div>
+
+    <div style="text-align:center; margin-top:56px;">
+      <a href="https://instagram.com/lucadias30" target="_blank" style="display:inline-flex; align-items:center; gap:10px; color:#0c0c0d; background:#f4f2f0; text-decoration:none; font-weight:700; font-size:14px; letter-spacing:1px; text-transform:uppercase; padding:16px 32px; border-radius:100px;">
+        Mais em @lucadias30
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div data-screen-label="Footer" style="padding:60px 6vw; border-top:1px solid rgba(244,242,240,0.08); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+    <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:16px; letter-spacing:1px;">LUCA <span style="color:{{ accent }};">DIAS</span> · Nº 30</div>
+    <div style="font-size:13px; opacity:0.55;">Guilherme Competições</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accentColor&quot;: {
+    &quot;editor&quot;: &quot;color&quot;,
+    &quot;default&quot;: &quot;#e5231b&quot;,
+    &quot;options&quot;: [&quot;#e5231b&quot;, &quot;#0057b8&quot;, &quot;#f2a900&quot;, &quot;#00a651&quot;],
+    &quot;tsType&quot;: &quot;string&quot;,
+    &quot;section&quot;: &quot;Estilo&quot;
+  },
+  &quot;mood&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;default&quot;: &quot;cinematico&quot;,
+    &quot;options&quot;: [&quot;cinematico&quot;, &quot;editorial&quot;, &quot;impacto&quot;],
+    &quot;tsType&quot;: &quot;string&quot;,
+    &quot;section&quot;: &quot;Estilo&quot;
+  },
+  &quot;resultsLayout&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;default&quot;: &quot;linha do tempo&quot;,
+    &quot;options&quot;: [&quot;linha do tempo&quot;, &quot;grade&quot;],
+    &quot;tsType&quot;: &quot;string&quot;,
+    &quot;section&quot;: &quot;Resultados&quot;
+  }
+}">
+const INACTIVE = 'rgba(244,242,240,0.3)';
+
+function hexToRgba(hex, alpha) {
+  const h = hex.replace('#', '');
+  const r = parseInt(h.substring(0, 2), 16);
+  const g = parseInt(h.substring(2, 4), 16);
+  const b = parseInt(h.substring(4, 6), 16);
+  return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+}
+
+const MONTH_ABBR = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+
+const MOOD = {
+  'cinematico': {
+    kickerSize: '13px', kickerLS: '4px', kickerTag: false,
+    heroSize: 'clamp(48px,10vw,140px)', heroLH: '0.92',
+    padWide: '120px 6vw', padTight: '90px 6vw',
+    statSize: '26px', radius: '4px', badgeRadius: '100px'
+  },
+  'editorial': {
+    kickerSize: '11px', kickerLS: '2px', kickerTag: false,
+    heroSize: 'clamp(36px,6.4vw,92px)', heroLH: '1.0',
+    padWide: '80px 6vw', padTight: '60px 6vw',
+    statSize: '19px', radius: '2px', badgeRadius: '3px'
+  },
+  'impacto': {
+    kickerSize: '14px', kickerLS: '5px', kickerTag: true,
+    heroSize: 'clamp(58px,12.5vw,172px)', heroLH: '0.86',
+    padWide: '110px 6vw', padTight: '96px 6vw',
+    statSize: '36px', radius: '0px', badgeRadius: '2px'
+  }
+};
+
+function badge(label, value, accent) {
+  const raw = value.trim();
+  const isBreakdown = /^quebrou$/i.test(raw) || /^dnf\b/i.test(raw);
+  const posWithNote = raw.match(/^(P\d+)\s*-\s*(.+)$/i);
+  let display = raw;
+  let tooltip = '';
+  if (isBreakdown) {
+    display = 'DNF';
+    tooltip = 'Problema na corrente';
+  } else if (posWithNote) {
+    display = posWithNote[1];
+    tooltip = posWithNote[2];
+  }
+  const win = /^P1\b/.test(raw);
+  return win
+    ? { label, value: display, tooltip, bg: hexToRgba(accent, 0.12), border: hexToRgba(accent, 0.35), color: accent }
+    : { label, value: display, tooltip, bg: 'rgba(244,242,240,0.06)', border: 'rgba(244,242,240,0.15)', color: '#f4f2f0' };
+}
+
+const TROPHY_PATH = 'M17 3H7v2H3v4c0 2.21 1.79 4 4 4h.29c.51 1.72 1.98 3.02 3.71 3.37V19H7v2h10v-2h-4v-2.63c1.73-.35 3.2-1.65 3.71-3.37H17c2.21 0 4-1.79 4-4V5h-4V3zM5 9V7h2v4.82C5.84 11.4 5 10.3 5 9zm14 0c0 1.3-.84 2.4-2 2.82V7h2v2z';
+
+function trophyColorFor(result) {
+  if (/^P1\b/.test(result)) return '#FFD700';
+  if (/^P2\b/.test(result)) return '#C7C7C7';
+  if (/^P3\b/.test(result)) return '#CD7F32';
+  return null;
+}
+
+const RESULTS_BASE = [
+  {
+    month: '03/2025', champ: 'Campeonato Paraibano', local: 'Kartódromo Internacional Paladino, Conde, PB', category: 'Mirim/Cadete',
+    result: '5º', obs: '',
+    badgesRaw: [['Qualy', 'P2'], ['Corrida 1', 'P1'], ['Corrida 2', 'DNF - Problema na corrente']],
+    photos: []
+  },
+  {
+    month: '04/2025', champ: 'Copa Fortaleza de Kart', local: 'Kartódromo Marcelino, Morada Nova, CE', category: 'Mirim/Cadete',
+    result: 'P1', obs: '',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P1']],
+    photos: []
+  },
+  {
+    month: '05/2025', champ: 'Copa Fortaleza de Kart', local: 'Kartódromo Marcelino, Morada Nova, CE', category: 'Mirim/Cadete',
+    result: 'P1', obs: '',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P1']],
+    photos: []
+  },
+  {
+    month: '09/2025', champ: 'Copa Fortaleza de Kart', local: 'Kartódromo Marcelino, Morada Nova, CE', category: 'Mirim/Cadete',
+    result: 'P1', obs: '',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P1']],
+    photos: []
+  },
+  {
+    month: '10/2025', champ: 'Copa Fortaleza de Kart', local: 'Kartódromo Marcelino, Morada Nova, CE', category: 'Mirim/Cadete',
+    result: 'P1', obs: '',
+    badgesRaw: [['Corrida 1', 'P1'], ['Corrida 2', 'P1']],
+    photos: [{ bg: "url('assets/cfk-outubro25-1.jpeg')" }, { bg: "url('assets/cfk-outubro25-2.jpeg')" }]
+  },
+  {
+    month: '12/2025', champ: 'Copa Fortaleza de Kart', local: 'Kartódromo Marcelino, Morada Nova, CE', category: 'Mirim/Cadete',
+    result: 'P2', obs: '',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P2']],
+    photos: [{ bg: "url('assets/cfk-ultima-etapa-2025.jpeg')" }]
+  },
+  {
+    month: '12/2025', type: 'milestone', title: 'Campeão do Campeonato',
+    champ: 'Copa Fortaleza de Kart (CFK)', local: 'Temporada 2025',
+    photos: [{ bg: "url('assets/cfk-ultima-etapa-2025.jpeg')" }]
+  },
+  {
+    month: '03/2026', champ: 'Campeonato Cearense de Kart', local: 'KartClube Premium, Caucaia, CE', category: 'Cadete',
+    result: 'P2', obs: 'Corrida 3 vale pontos do campeonato',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P1'], ['Corrida 3', 'P2']],
+    photos: []
+  },
+  {
+    month: '04/2026', champ: 'Copa Fortaleza de Kart', local: 'Kartódromo Marcelino, Morada Nova, CE', category: 'Cadete',
+    result: 'P1', obs: '',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P1'], ['Corrida 3', 'P1']],
+    photos: [{ bg: "url('assets/cfk-etapa1-2026.jpeg')" }]
+  },
+  {
+    month: '05/2026', champ: 'Campeonato Cearense de Kart', local: 'KartClube Premium, Caucaia, CE', category: 'Cadete',
+    result: 'P1', obs: 'Corrida 3 vale pontos do campeonato',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P2'], ['Corrida 3', 'P1']],
+    photos: [
+      { bg: "url('assets/podium-2.jpeg')" },
+      { bg: "url('assets/cearense-etapa2-1.jpeg')" },
+      { bg: "url('assets/cearense-etapa2-2.jpg')" },
+      { bg: "url('assets/cearense-etapa2-3.jpg')" },
+      { bg: "url('assets/cearense-etapa2-4.jpg')" },
+      { bg: "url('assets/cearense-etapa2-5.jpg')" },
+      { bg: "url('assets/cearense-etapa2-6.jpg')" },
+      { bg: "url('assets/cearense-etapa2-7.jpg')" }
+    ]
+  },
+  {
+    month: '05/2026', champ: 'Copa Fortaleza de Kart', local: 'Kartódromo Marcelino, Morada Nova, CE', category: 'Cadete',
+    result: 'P3', obs: '',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'Quebrou'], ['Corrida 2', 'P1'], ['Corrida 3', 'P1']],
+    photos: [{ bg: "url('assets/cfk-2026-etapa2.jpeg')" }]
+  },
+  {
+    month: '06/2026', champ: 'Campeonato Cearense de Kart', local: 'KartClube Premium, Caucaia, CE', category: 'Cadete',
+    result: 'P1', obs: 'Corrida 3 vale pontos do campeonato',
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P5 - Problema na corrente'], ['Corrida 2', 'P1'], ['Corrida 3', 'P1']],
+    photos: [{ bg: "url('assets/podium-1.jpeg')" }, { bg: "url('assets/cearense-etapa3.jpeg')" }]
+  }
+];
+
+function getRaces() {
+  return RESULTS_BASE.filter((r) => r.type !== 'milestone');
+}
+
+const CURRENT_STANDINGS = [
+  { champ: 'Cearense 2026', result: 'P1' },
+  { champ: 'Copa Fortaleza 2026', result: 'P1' }
+];
+
+function getStandings() {
+  return CURRENT_STANDINGS.map((s) => ({ ...s, color: trophyColorFor(s.result) || '#f4f2f0' }));
+}
+
+function getTotals() {
+  let totalRaces = 0, countP1 = 0, countP2 = 0, countP3 = 0, countPole = 0, totalQualy = 0;
+  getRaces().forEach((r) => {
+    r.badgesRaw.forEach(([label, value]) => {
+      if (label === 'Qualy') {
+        totalQualy++;
+        if (/^P1\b/.test(value)) countPole++;
+        return;
+      }
+      totalRaces++;
+      if (/^P1\b/.test(value)) countP1++;
+      else if (/^P2\b/.test(value)) countP2++;
+      else if (/^P3\b/.test(value)) countP3++;
+    });
+  });
+  return { totalRaces, countP1, countP2, countP3, countPole, totalQualy };
+}
+
+function buildResults(accent) {
+  const list = RESULTS_BASE.map((r, i) => {
+    const [mm, yy] = r.month.split('/').map(Number);
+    const baseSort = yy * 12 + mm;
+    if (r.type === 'milestone') {
+      const mPhotos = r.photos || [];
+      const mHasManyPhotos = mPhotos.length > 3;
+      return {
+        ...r,
+        isMilestone: true,
+        isRace: false,
+        monthAbbr: MONTH_ABBR[mm - 1],
+        year: String(yy),
+        sortKey: baseSort + 0.5,
+        hasPhotos: mPhotos.length > 0,
+        hasManyPhotos: mHasManyPhotos,
+        hasFewPhotos: mPhotos.length > 0 && !mHasManyPhotos,
+        photosLoop: mHasManyPhotos ? [...mPhotos, ...mPhotos] : mPhotos,
+        photoDuration: Math.max(8, mPhotos.length * 2.6)
+      };
+    }
+    const trophyColor = trophyColorFor(r.result);
+    const hasManyPhotos = r.photos.length > 3;
+    return {
+      ...r,
+      isMilestone: false,
+      isRace: true,
+      resultLabel: r.result,
+      resultColor: /^P1\b/.test(r.result) ? accent : '#f4f2f0',
+      hasPhotos: r.photos.length > 0,
+      hasManyPhotos,
+      hasFewPhotos: r.photos.length > 0 && !hasManyPhotos,
+      photosLoop: hasManyPhotos ? [...r.photos, ...r.photos] : r.photos,
+      photoDuration: Math.max(8, r.photos.length * 2.6),
+      hasTrophy: !!trophyColor,
+      trophyColor: trophyColor || '#f4f2f0',
+      isChampion: /campe[aã]o/i.test(r.obs),
+      monthAbbr: MONTH_ABBR[mm - 1],
+      year: String(yy),
+      dotBg: /^P1\b/.test(r.result) ? accent : '#f4f2f0',
+      dotRing: /^P1\b/.test(r.result) ? hexToRgba(accent, 0.35) : 'rgba(244,242,240,0.2)',
+      badges: r.badgesRaw.map(([label, value]) => badge(label, value, accent)),
+      sortKey: baseSort
+    };
+  });
+  return list.sort((a, b) => b.sortKey - a.sortKey);
+}
+
+class Component extends DCLogic {
+  state = { active: 'hero', lightboxSrc: null };
+
+  openLightbox = (e) => {
+    const bg = e.currentTarget.dataset.src;
+    this.setState({ lightboxSrc: bg });
+  };
+
+  closeLightbox = () => {
+    this.setState({ lightboxSrc: null });
+  };
+
+  componentDidMount() {
+    const root = this.rootEl;
+    if (!root) return;
+
+    const revealEls = root.querySelectorAll('[data-reveal]');
+    const revealIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          entry.target.querySelectorAll('[data-stagger]').forEach((child) => {
+            child.style.opacity = '1';
+            child.style.transform = 'translateY(0)';
+          });
+          revealIo.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+    revealEls.forEach((el) => revealIo.observe(el));
+
+    const sectionOrder = ['hero', 'resultados', 'galeria'];
+    const sectionEls = root.querySelectorAll('[data-section]');
+    const spyIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.setState({ active: entry.target.dataset.section });
+        }
+      });
+    }, { threshold: 0.5 });
+    sectionEls.forEach((el) => spyIo.observe(el));
+
+    const setupAutoScroll = (el, axis, speed) => {
+      if (!el) return;
+      let paused = false;
+      let resumeTimer = null;
+      let raf;
+      const step = () => {
+        if (!paused) {
+          if (axis === 'y') {
+            const max = el.scrollHeight - el.clientHeight;
+            if (max <= 0) return;
+            el.scrollTop += speed;
+            if (el.scrollTop >= max) el.scrollTop = 0;
+          } else {
+            el.scrollLeft += speed;
+            if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft = 0;
+          }
+        }
+        raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
+      el.addEventListener('mouseenter', () => { paused = true; });
+      el.addEventListener('mouseleave', () => { paused = false; });
+      el.addEventListener('wheel', () => {
+        paused = true;
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => { paused = false; }, 2500);
+      }, { passive: true });
+      this._autoScrollRafs = this._autoScrollRafs || [];
+      this._autoScrollRafs.push(() => cancelAnimationFrame(raf));
+    };
+    root.querySelectorAll('[data-autoscroll-y]').forEach((el) => setupAutoScroll(el, 'y', 0.18));
+    root.querySelectorAll('[data-autoscroll-x]').forEach((el) => setupAutoScroll(el, 'x', 0.4));
+
+    let wheelLock = false;
+    this._onWheel = (e) => {
+      if (e.target.closest('[data-hscroll], [data-autoscroll-y], [data-autoscroll-x]')) return;
+      if (wheelLock) { e.preventDefault(); return; }
+      const curEl = root.querySelector('[data-section="' + this.state.active + '"]');
+      if (curEl) {
+        const rect = curEl.getBoundingClientRect();
+        const overflowsDown = e.deltaY > 0 && rect.bottom > window.innerHeight + 2;
+        const overflowsUp = e.deltaY < 0 && rect.top < -2;
+        if (overflowsDown || overflowsUp) return;
+      }
+      const curIdx = sectionOrder.indexOf(this.state.active);
+      const nextIdx = Math.max(0, Math.min(sectionOrder.length - 1, curIdx + (e.deltaY > 0 ? 1 : -1)));
+      if (nextIdx === curIdx) return;
+      e.preventDefault();
+      wheelLock = true;
+      const target = root.querySelector('[data-section="' + sectionOrder[nextIdx] + '"]');
+      if (target) window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+      setTimeout(() => { wheelLock = false; }, 900);
+    };
+    window.addEventListener('wheel', this._onWheel, { passive: false });
+
+    const galleryImgs = root.querySelectorAll('#sec-galeria img');
+    galleryImgs.forEach((img) => {
+      img.addEventListener('mouseenter', () => { img.style.transform = 'scale(1.03)'; });
+      img.addEventListener('mouseleave', () => { img.style.transform = 'scale(1)'; });
+    });
+  }
+
+  componentWillUnmount() {
+    if (this._onWheel) window.removeEventListener('wheel', this._onWheel);
+    (this._autoScrollRafs || []).forEach((cancel) => cancel());
+  }
+
+  renderVals() {
+    const a = this.state.active;
+    const accent = this.props.accentColor ?? '#e5231b';
+    const moodKey = this.props.mood ?? 'cinematico';
+    const m = MOOD[moodKey] || MOOD['cinematico'];
+    const isGrid = (this.props.resultsLayout ?? 'linha do tempo') === 'grade';
+    const dot = (id) => (a === id ? accent : INACTIVE);
+    const scale = (id) => (a === id ? 'scale(1.6)' : 'scale(1)');
+    const allResults = buildResults(accent);
+    const featured = allResults[0];
+    const rest = allResults.slice(1);
+    const totals = getTotals();
+    return {
+      standings: getStandings(),
+      totalRaces: totals.totalRaces,
+      countP1: totals.countP1,
+      countP2: totals.countP2,
+      countP3: totals.countP3,
+      countPole: totals.countPole,
+      totalQualy: totals.totalQualy,
+      featured,
+      rest,
+      restLoop: [...rest, ...rest],
+      hasRest: rest.length > 0,
+      restDuration: Math.max(16, rest.length * 5.5),
+      trophyPath: TROPHY_PATH,
+      rootRef: (el) => { this.rootEl = el; },
+      dotHero: dot('hero'), scaleHero: scale('hero'),
+      dotResultados: dot('resultados'), scaleResultados: scale('resultados'),
+      dotGaleria: dot('galeria'), scaleGaleria: scale('galeria'),
+      lightboxSrc: this.state.lightboxSrc,
+      lightboxBg: this.state.lightboxSrc ? "url('" + this.state.lightboxSrc.replace(/^url\((['"]?)(.*?)\1\)$/, '$2') + "')" : '',
+      hasLightbox: !!this.state.lightboxSrc,
+      openLightbox: this.openLightbox,
+      closeLightbox: this.closeLightbox,
+
+      accent: accent,
+      igColor: accent,
+      kickerSize: m.kickerSize, kickerLS: m.kickerLS,
+      heroSize: m.heroSize, heroLH: m.heroLH,
+      padWide: m.padWide, padTight: m.padTight,
+      statSize: m.statSize, radius: m.radius, badgeRadius: m.badgeRadius,
+      kickerBg: m.kickerTag ? hexToRgba(accent, 0.14) : 'transparent',
+      kickerPad: m.kickerTag ? '5px 12px' : '0',
+      kickerRadius: m.kickerTag ? '3px' : '0',
+      kickerDisplay: m.kickerTag ? 'inline-block' : 'block',
+
+      isGridLayout: isGrid,
+      isTimelineLayout: !isGrid
+    };
+  }
+}
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Luca Dias";
+  // rAF raced with a short timeout: inside a cross-origin iframe (PrintMode),
+  // rAF can be throttled or paused even while the tab is focused, which would
+  // hang the scroll loop and never reach print(). Same pattern as
+  // buildExportSettleScript (export/shared.ts).
+  var raf = function () {
+    return Promise.race([
+      new Promise(function (r) { requestAnimationFrame(r); }),
+      new Promise(function (r) { setTimeout(r, 50); }),
+    ]);
+  };
+  var t0 = performance.now();
+  var mark = function (phase) {
+    var ms = Math.round(performance.now() - t0);
+    console.info('[autoprint]', phase, ms + 'ms');
+    try { parent.postMessage({ __omelette_autoprint: { phase: phase, ms: ms } }, '*'); } catch (e) {}
+  };
+  mark('start');
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    // A placeholder whose fetch failed (.sc-placeholder-error inside) keeps
+    // .sc-placeholder forever — don't wait on it. JS loop, not :has(), so an
+    // engine without :has() support can't throw out of the while and skip
+    // print() entirely.
+    var pendingPlaceholders = function () {
+      var all = settleRoot.querySelectorAll('.sc-placeholder'), n = 0;
+      for (var i = 0; i < all.length; i++)
+        if (!all[i].querySelector('.sc-placeholder-error')) n++;
+      return n;
+    };
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        pendingPlaceholders() === 0;
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  mark('settle-done' + (settleRoot ? ' (errs=' + settleRoot.querySelectorAll('.sc-placeholder-error').length + ' pending=' + pendingPlaceholders() + ')' : ''));
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    var scrollDeadline = Date.now() + 4000;
+    for (let y = 0; y <= full && Date.now() < scrollDeadline; y += step) {
+      window.scrollTo(0, y);
+      await raf();
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  mark('scroll-done');
+  try { await Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 3000))]); } catch (e) {}
+  mark('fonts-done');
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await raf();
+    sweep();
+    await raf();
+  } catch (e) {}
+  // A document that owns its print CSS (the doc-page starter injects the
+  // meta at runtime; hand-rolled print designs author it) gets no automatic
+  // page geometry and keeps its forced breaks: strip the injected default
+  // @page — write time cannot see a runtime-injected meta — skip the frame
+  // override below, and skip the fakepage-flattening further down. What
+  // still applies: the print baseline and break-hygiene defaults (no @page
+  // in either; low specificity, so the document's own print CSS wins) and
+  // the break-inside relaxation on >page elements (avoid on those cannot
+  // be honored whoever authored it).
+  var ownsPrint = !!document.querySelector('meta[name="omelette-owns-print" i]');
+  if (ownsPrint) {
+    var dst = document.querySelector('style[data-omelette-print-defaults]');
+    if (dst && dst.textContent) {
+      dst.textContent = dst.textContent.replace(/@page\b[^{}]*\{[^}]*\}/, '');
+    }
+  }
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…} or declared print ownership
+  // via the meta above. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+  // Name-presence check, case-insensitive — the same contract as the
+  // instant-PDF path's runtime check in deck-stage-export.ts. The name is
+  // a string literal here because that file interpolates this script into
+  // its print script, so importing a shared constant from it would be a
+  // cycle; measure.test.ts pins the literal so the two cannot drift apart
+  // silently.
+  var ownsPrint = !!document.querySelector('meta[name="omelette-owns-print" i]');
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false, ownsPrint: ownsPrint } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false, ownsPrint: ownsPrint } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage, ownsPrint: ownsPrint };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: off unless the page opts in via data-om-multi-frame on the
+  // stop element — the explicit opt-in is what guards against card grids
+  // and pricing tables that match the geometry but aren't separate
+  // canvases. Two ways to name the frames, explicit first:
+  // 1. Descendants marked data-om-frame-export (the social-frames starter
+  //    marks each asset frame; shells/panels around them are presentation,
+  //    so nesting is expected). Document order.
+  // 2. Fallback, no marked descendants: direct children with an authored px
+  //    width AND height (the original geometry heuristic).
+  // Frames may be different sizes (a gallery mixes 1080×1920 stories with
+  // 728×90 banners); data-om-frame-label rides along for export filenames.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var visOk = function (e) {
+      var cs; try { cs = getComputedStyle(e); } catch (err) { return false; }
+      return cs.display !== 'none' && cs.visibility !== 'hidden' && cs.position !== 'fixed';
+    };
+    // A frame's crop is its VISUAL box — never the scrollHeight-inflated
+    // rect that rectOf computes for page roots. Shadow-DOM hover controls
+    // (image-slot's Replace bar parks 29px below its host) and similar
+    // escaping UI contribute scrollable overflow to the frame, and the
+    // inflated height both squashes the nominal-size resize and drags
+    // content below the frame into the crop. Zoom-independent; bit every
+    // slot-bearing frame.
+    var frameRectOf = function (e) {
+      var r = e.getBoundingClientRect();
+      return { left: r.left + sx, top: r.top + sy, width: r.width, height: r.height };
+    };
+    var pushCand = function (list, e) {
+      if (!visOk(e)) return;
+      var rc = frameRectOf(e);
+      if (rc.width < 2 || rc.height < 2) return;
+      var lbl = e.getAttribute('data-om-frame-label');
+      if (lbl) rc.label = lbl;
+      list.push(rc);
+    };
+    var cands = [];
+    var marked = el.querySelectorAll('[data-om-frame-export]');
+    if (marked.length) {
+      for (var mk = 0; mk < marked.length; mk++) pushCand(cands, marked[mk]);
+    } else {
+      for (var k = 0; k < el.children.length; k++) {
+        var ch = el.children[k];
+        if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+        pushCand(cands, ch);
+      }
+    }
+    if (cands.length >= 2) {
+      return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (!ownsPrint && __m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          // An owns-print doc's forced breaks are intentional sheet
+          // boundaries, never fake-paged simulation — don't strip them.
+          // The break-inside relaxation above still applies: avoid on a
+          // >page element is impossible to honor whoever authored it.
+          if (
+            !ownsPrint &&
+            (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always')
+          ) {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  mark('print-calling');
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
