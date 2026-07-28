@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Proposta de Apoio Técnico — Luca Dias / Arai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;900&family=Manrope:wght@400;500;600;700;800&display=swap">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, sans-serif; background: #EAECEE; color: #2C3E50; }
+  body { font-family: 'Manrope', Arial, sans-serif; background: #EAECEE; color: #2C3E50; }
+  .display { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; text-transform: uppercase; }
   .doc { max-width: 860px; margin: 40px auto 60px; background: #fff; box-shadow: 0 6px 40px rgba(0,0,0,0.13); border-radius: 14px; overflow: hidden; }
 
   /* CAPA */
@@ -19,8 +22,12 @@
   .cover-inner { position:relative;z-index:1;padding:52px 260px 52px 52px;flex:1; }
   .cc1 { position:absolute;bottom:-60px;left:200px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.03);z-index:0; }
   .cc2 { position:absolute;top:-40px;left:300px;width:160px;height:160px;border-radius:50%;background:rgba(192,57,43,0.08);z-index:0; }
+  .brand-union { display:flex;align-items:center;gap:12px;margin-bottom:18px;position:relative; }
+  .brand-chip { background:#fff;border-radius:8px;padding:9px 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(0,0,0,0.28); }
+  .union-x { font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:20px;color:rgba(255,255,255,0.45); }
+  .union-phrase { font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:21px;color:#fff;letter-spacing:0.2px;line-height:1.15;margin-bottom:22px;position:relative; }
   .cover-tag { font-size:9px;font-weight:bold;letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:34px;display:block;position:relative; }
-  .cover-name { font-size:58px;font-weight:bold;line-height:1.0;margin-bottom:8px;position:relative;letter-spacing:-1px; }
+  .cover-name { font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:58px;line-height:0.95;margin-bottom:8px;position:relative;letter-spacing:-0.5px; }
   .cover-sub { font-size:19px;color:rgba(255,255,255,0.75);margin-bottom:4px;position:relative;font-weight:normal; }
   .cover-cat { font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:30px;position:relative;line-height:1.6; }
   .cover-badges { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;position:relative; }
@@ -30,7 +37,7 @@
   .cover-to strong { color:#fff;font-size:15px;display:block;margin-top:4px;font-weight:bold; }
   .cover-right-content { position:absolute;right:0;top:0;width:220px;height:100%;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px;text-align:center; }
   .cover-right-season { font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:16px; }
-  .cover-right-num { font-size:36px;font-weight:bold;color:#fff;line-height:1;margin-bottom:4px;opacity:.25;letter-spacing:-1px; }
+  .cover-right-num { font-family:'Big Shoulders Display',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;margin-bottom:4px;opacity:.25;letter-spacing:-1px; }
   .cover-right-label { font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1.5px;line-height:1.6; }
 
   /* SEÇÕES */
@@ -40,7 +47,7 @@
   .section-tag { font-size:10px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;color:#C0392B;display:block; }
   .watermark { height:16px;object-fit:contain;opacity:0.22;filter:grayscale(1);margin-left:auto; }
   .red-bar { width:36px;height:3px;background:#C0392B;margin-bottom:20px;border-radius:2px; }
-  .section-title { font-size:22px;font-weight:bold;color:#1A252F;margin-bottom:18px;line-height:1.3; }
+  .section-title { font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:26px;color:#1A252F;margin-bottom:18px;line-height:1.15; }
   .section-body { font-size:14px;line-height:1.9;color:#5D6D7E; }
   .hl { color:#C0392B;font-weight:bold; }
   .fonte { font-size:10.5px;color:#95A5A6;margin-top:10px;font-style:italic; }
@@ -52,7 +59,7 @@
   .etapa-champ { font-size:13.5px;font-weight:bold;color:#1A252F; }
   .etapa-local { font-size:11.5px;color:#95A5A6;margin-top:2px; }
   .etapa-note { font-size:11px;color:#95A5A6;margin-top:3px;font-style:italic; }
-  .etapa-final { font-size:20px;font-weight:bold;color:#2C3E50;padding-top:2px; }
+  .etapa-final { font-family:'Big Shoulders Display',sans-serif;font-size:24px;font-weight:900;color:#2C3E50;padding-top:2px; }
   .etapa-final.win { color:#C0392B; }
   .race-badges { display:flex;gap:8px;flex-wrap:wrap; }
   .race-badge { background:#FEF9F9;border:1px solid #FADBD8;border-radius:20px;padding:4px 12px;font-size:11.5px;color:#5D6D7E; }
@@ -79,7 +86,7 @@
   .stats-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0; }
   .stats-grid.cols-4 { grid-template-columns:repeat(4,1fr); }
   .stat-card { background:#FEF9F9;border:1px solid #FADBD8;border-radius:10px;padding:24px 16px;text-align:center; }
-  .stat-num { font-size:34px;font-weight:bold;color:#C0392B;line-height:1;margin-bottom:8px; }
+  .stat-num { font-family:'Big Shoulders Display',sans-serif;font-size:38px;font-weight:900;color:#C0392B;line-height:1;margin-bottom:8px; }
   .stat-label { font-size:11px;color:#7F8C8D;text-transform:uppercase;letter-spacing:1px;line-height:1.5; }
 
   /* INSTAGRAM */
@@ -88,10 +95,10 @@
   .ig-bar-label { font-size:10px;color:#7F8C8D;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;font-weight:bold; }
   .ig-bar-bg { background:#E5E8E8;border-radius:4px;height:6px;margin-bottom:8px;overflow:hidden; }
   .ig-bar-fill { background:#C0392B;height:6px;border-radius:4px; }
-  .ig-bar-val { font-size:15px;font-weight:bold;color:#C0392B; }
+  .ig-bar-val { font-family:'Big Shoulders Display',sans-serif;font-size:17px;font-weight:900;color:#C0392B; }
   .ig-total-box { background:#C0392B;color:#fff;border-radius:8px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px; }
   .ig-total-left { font-size:11px;opacity:.8;text-transform:uppercase;letter-spacing:.8px; }
-  .ig-total-right { font-size:22px;font-weight:bold; }
+  .ig-total-right { font-family:'Big Shoulders Display',sans-serif;font-size:24px;font-weight:900; }
 
   /* INSIGHT / DESTAQUE */
   .insight-box { border:1.5px solid #C0392B;border-radius:10px;padding:20px 24px;margin:20px 0;display:flex;gap:16px;align-items:flex-start; }
@@ -122,7 +129,7 @@
 
   /* FECHAMENTO */
   .closing-box { border:2px solid #C0392B;border-radius:12px;padding:34px 40px;margin:22px 0;text-align:center; }
-  .closing-title { font-size:20px;font-weight:bold;color:#C0392B;margin-bottom:14px; }
+  .closing-title { font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:24px;color:#C0392B;margin-bottom:14px; }
   .closing-body { font-size:14px;color:#5D6D7E;line-height:1.85;max-width:580px;margin:0 auto; }
   .contact-row { display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px; }
   .contact-btn { display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:bold;font-size:12.5px;letter-spacing:.3px;padding:12px 22px;border-radius:24px; }
@@ -155,6 +162,12 @@
     <div class="cover-right-bar"></div>
     <div class="cc1"></div><div class="cc2"></div>
     <div class="cover-inner">
+      <div class="brand-union">
+        <div class="brand-chip"><img src="../../assets/logo-ld30-dark.png" alt="Luca Dias — LD30" style="height:26px;width:auto;display:block;"></div>
+        <span class="union-x">×</span>
+        <div class="brand-chip"><img src="../../assets/arai-logo.png" alt="Arai" style="height:22px;width:auto;display:block;"></div>
+      </div>
+      <div class="union-phrase">Arai protege. Luca Dias acelera.</div>
       <span class="cover-tag">Proposta de Apoio Técnico · Temporadas 2026 e 2027</span>
       <div class="cover-name">Luca Dias</div>
       <div class="cover-sub">Piloto Cadete — Kart</div>
@@ -336,7 +349,7 @@
           <div class="etapa-final">P2</div>
         </div>
         <div class="race-badges">
-          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge"><span class="lbl">Qualy</span><span class="val">P2</span></span>
           <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
           <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
           <span class="race-badge"><span class="lbl">Corrida 3</span><span class="val">P2</span></span>
@@ -380,7 +393,7 @@
         </div>
         <div class="race-badges">
           <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
-          <span class="race-badge dnf"><span class="lbl">Corrida 1</span><span class="val">DNF</span> · quebra mecânica</span>
+          <span class="race-badge dnf"><span class="lbl">Corrida 1</span><span class="val">DNF</span> · problema na corrente</span>
           <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
           <span class="race-badge win"><span class="lbl">Corrida 3</span><span class="val">P1</span></span>
         </div>
@@ -644,7 +657,8 @@
       parceria com a Arai.
     </p>
     <div class="contact-row">
-      <a href="https://instagram.com/lucadias30" target="_blank" class="contact-btn primary">Instagram @lucadias30</a>
+      <a href="https://lucadias.com" target="_blank" class="contact-btn primary">lucadias.com — saiba mais</a>
+      <a href="https://instagram.com/lucadias30" target="_blank" class="contact-btn ghost">Instagram @lucadias30</a>
       <a href="mailto:robertoalcantara@gmail.com" class="contact-btn ghost">robertoalcantara@gmail.com</a>
     </div>
   </div>
