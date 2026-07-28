@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Proposta de Apoio Técnico — Luca Dias / Arai</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #EAECEE; color: #2C3E50; }
+  .doc { max-width: 860px; margin: 40px auto 60px; background: #fff; box-shadow: 0 6px 40px rgba(0,0,0,0.13); border-radius: 14px; overflow: hidden; }
+
+  /* CAPA */
+  .cover { background: #0F1923; color: #fff; padding: 0; position: relative; overflow: hidden; display: flex; min-height: 460px; }
+  .cover-left { background: #C0392B; width: 8px; flex-shrink: 0; }
+  .cover-accent { position:absolute;top:0;left:8px;width:420px;height:100%;background:linear-gradient(135deg,#1A252F 0%,#0F1923 100%);z-index:0; }
+  .cover-right-bar { position:absolute;top:0;right:0;width:220px;height:100%;background:linear-gradient(180deg,#C0392B 0%,#922B21 100%);z-index:0; }
+  .cover-right-bar::before { content:'';position:absolute;top:0;left:-40px;width:80px;height:100%;background:inherit;clip-path:polygon(40px 0,100% 0,100% 100%,0 100%); }
+  .cover-inner { position:relative;z-index:1;padding:52px 260px 52px 52px;flex:1; }
+  .cc1 { position:absolute;bottom:-60px;left:200px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.03);z-index:0; }
+  .cc2 { position:absolute;top:-40px;left:300px;width:160px;height:160px;border-radius:50%;background:rgba(192,57,43,0.08);z-index:0; }
+  .cover-tag { font-size:9px;font-weight:bold;letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:34px;display:block;position:relative; }
+  .cover-name { font-size:58px;font-weight:bold;line-height:1.0;margin-bottom:8px;position:relative;letter-spacing:-1px; }
+  .cover-sub { font-size:19px;color:rgba(255,255,255,0.75);margin-bottom:4px;position:relative;font-weight:normal; }
+  .cover-cat { font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:30px;position:relative;line-height:1.6; }
+  .cover-badges { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;position:relative; }
+  .badge { background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.85);font-size:11px;padding:5px 14px;border-radius:4px;font-weight:bold;letter-spacing:.3px; }
+  .ask-badge { background:#C0392B;color:#fff;font-size:10px;padding:6px 16px;border-radius:4px;font-weight:bold;display:inline-block;margin-bottom:26px;position:relative;letter-spacing:1.5px;text-transform:uppercase; }
+  .cover-to { border-top:1px solid rgba(255,255,255,0.1);padding-top:18px;font-size:12px;color:rgba(255,255,255,0.45);position:relative; }
+  .cover-to strong { color:#fff;font-size:15px;display:block;margin-top:4px;font-weight:bold; }
+  .cover-right-content { position:absolute;right:0;top:0;width:220px;height:100%;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px;text-align:center; }
+  .cover-right-season { font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:16px; }
+  .cover-right-num { font-size:36px;font-weight:bold;color:#fff;line-height:1;margin-bottom:4px;opacity:.25;letter-spacing:-1px; }
+  .cover-right-label { font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1.5px;line-height:1.6; }
+
+  /* SEÇÕES */
+  .section { padding:48px 60px;border-bottom:1px solid #EAECEE; }
+  .section:last-child { border-bottom:none; }
+  .section-tag-wrap { display:flex;align-items:center;margin-bottom:10px; }
+  .section-tag { font-size:10px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;color:#C0392B;display:block; }
+  .watermark { height:16px;object-fit:contain;opacity:0.22;filter:grayscale(1);margin-left:auto; }
+  .red-bar { width:36px;height:3px;background:#C0392B;margin-bottom:20px;border-radius:2px; }
+  .section-title { font-size:22px;font-weight:bold;color:#1A252F;margin-bottom:18px;line-height:1.3; }
+  .section-body { font-size:14px;line-height:1.9;color:#5D6D7E; }
+  .hl { color:#C0392B;font-weight:bold; }
+  .fonte { font-size:10.5px;color:#95A5A6;margin-top:10px;font-style:italic; }
+
+  /* HISTÓRICO */
+  .etapa-list { display:flex;flex-direction:column;gap:12px;margin:20px 0; }
+  .etapa-card { border:1px solid #E5E8E8;border-radius:10px;padding:16px 20px; }
+  .etapa-head { display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px; }
+  .etapa-champ { font-size:13.5px;font-weight:bold;color:#1A252F; }
+  .etapa-local { font-size:11.5px;color:#95A5A6;margin-top:2px; }
+  .etapa-note { font-size:11px;color:#95A5A6;margin-top:3px;font-style:italic; }
+  .etapa-final { font-size:20px;font-weight:bold;color:#2C3E50;padding-top:2px; }
+  .etapa-final.win { color:#C0392B; }
+  .race-badges { display:flex;gap:8px;flex-wrap:wrap; }
+  .race-badge { background:#FEF9F9;border:1px solid #FADBD8;border-radius:20px;padding:4px 12px;font-size:11.5px;color:#5D6D7E; }
+  .race-badge .lbl { color:#95A5A6;margin-right:5px; }
+  .race-badge .val { font-weight:bold;color:#2C3E50; }
+  .race-badge.win .val { color:#C0392B; }
+  .race-badge.dnf { background:#F4F4F4;border-color:#E5E5E5; }
+  .race-badge.dnf .val { color:#7F8C8D; }
+
+  /* MÍDIA */
+  .media-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0; }
+  .media-card { border:1px solid #E5E8E8;border-radius:10px;padding:18px;text-align:center; }
+  .media-card-icon { font-size:22px;margin-bottom:8px; }
+  .media-card-title { font-size:12.5px;font-weight:bold;color:#1A252F;margin-bottom:5px; }
+  .media-card-body { font-size:11.5px;color:#5D6D7E;line-height:1.55; }
+  .cite-list { display:flex;flex-direction:column; }
+  .cite-item { padding:12px 0;border-top:1px solid #EFEFEF; }
+  .cite-item:last-child { border-bottom:1px solid #EFEFEF; }
+  .cite-outlet { font-size:9.5px;font-weight:bold;letter-spacing:1.2px;text-transform:uppercase;color:#C0392B;margin-bottom:4px; }
+  .cite-title { font-size:13px;color:#1A252F;text-decoration:none;font-weight:bold;line-height:1.5; }
+  .cite-title[href]:hover { text-decoration:underline; }
+
+  /* STATS */
+  .stats-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0; }
+  .stats-grid.cols-4 { grid-template-columns:repeat(4,1fr); }
+  .stat-card { background:#FEF9F9;border:1px solid #FADBD8;border-radius:10px;padding:24px 16px;text-align:center; }
+  .stat-num { font-size:34px;font-weight:bold;color:#C0392B;line-height:1;margin-bottom:8px; }
+  .stat-label { font-size:11px;color:#7F8C8D;text-transform:uppercase;letter-spacing:1px;line-height:1.5; }
+
+  /* INSTAGRAM */
+  .ig-grid { display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:18px 0; }
+  .ig-bar-wrap { background:#FEF9F9;border:1px solid #FADBD8;border-radius:8px;padding:14px 10px; }
+  .ig-bar-label { font-size:10px;color:#7F8C8D;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;font-weight:bold; }
+  .ig-bar-bg { background:#E5E8E8;border-radius:4px;height:6px;margin-bottom:8px;overflow:hidden; }
+  .ig-bar-fill { background:#C0392B;height:6px;border-radius:4px; }
+  .ig-bar-val { font-size:15px;font-weight:bold;color:#C0392B; }
+  .ig-total-box { background:#C0392B;color:#fff;border-radius:8px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px; }
+  .ig-total-left { font-size:11px;opacity:.8;text-transform:uppercase;letter-spacing:.8px; }
+  .ig-total-right { font-size:22px;font-weight:bold; }
+
+  /* INSIGHT / DESTAQUE */
+  .insight-box { border:1.5px solid #C0392B;border-radius:10px;padding:20px 24px;margin:20px 0;display:flex;gap:16px;align-items:flex-start; }
+  .insight-icon { width:36px;height:36px;background:#C0392B;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:bold; }
+  .insight-text { font-size:13.5px;color:#2C3E50;line-height:1.75; }
+  .insight-text strong { color:#C0392B; }
+
+  .ask-destaque { background:#1A252F;border-radius:12px;padding:26px 32px;margin:24px 0;display:flex;align-items:flex-start;gap:20px; }
+  .ask-destaque-icon { width:44px;height:44px;background:#C0392B;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold;color:#fff;flex-shrink:0;margin-top:2px; }
+  .ask-destaque-text { font-size:13.5px;color:rgba(255,255,255,0.82);line-height:1.75; }
+  .ask-destaque-text strong { color:#fff;font-size:15px;display:block;margin-bottom:6px; }
+
+  /* CONTRAPARTIDAS */
+  .proposal-box { background:#C0392B;color:#fff;border-radius:12px;padding:30px 34px;margin:24px 0; }
+  .proposal-box-title { font-size:10px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:20px;opacity:.75; }
+  .proposal-item { display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.13);font-size:13.5px;gap:16px; }
+  .proposal-item:last-child { border-bottom:none; }
+  .proposal-item-label { color:rgba(255,255,255,0.88); }
+  .proposal-item-value { font-weight:bold;color:#fff;background:rgba(255,255,255,0.16);padding:3px 14px;border-radius:20px;font-size:11px;white-space:nowrap;flex-shrink:0; }
+
+  /* IMAGENS */
+  .sketch-grid { display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:22px; }
+  .sketch-img { border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15); }
+  .sketch-img img { width:100%;display:block;height:220px;object-fit:cover; }
+  .sketch-note { font-size:11.5px;color:#7F8C8D;margin-top:12px;line-height:1.65; }
+  .sketch-note strong { color:#2C3E50; }
+  .sketch-label { font-size:10px;font-weight:bold;text-transform:uppercase;letter-spacing:1.5px;color:#7F8C8D;text-align:center;margin-bottom:12px; }
+
+  /* FECHAMENTO */
+  .closing-box { border:2px solid #C0392B;border-radius:12px;padding:34px 40px;margin:22px 0;text-align:center; }
+  .closing-title { font-size:20px;font-weight:bold;color:#C0392B;margin-bottom:14px; }
+  .closing-body { font-size:14px;color:#5D6D7E;line-height:1.85;max-width:580px;margin:0 auto; }
+  .contact-row { display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px; }
+  .contact-btn { display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:bold;font-size:12.5px;letter-spacing:.3px;padding:12px 22px;border-radius:24px; }
+  .contact-btn.primary { background:#C0392B;color:#fff; }
+  .contact-btn.ghost { background:#fff;color:#1A252F;border:1px solid #D5D8DC; }
+  .footer-bar { background:#1A252F;padding:18px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px; }
+  .footer-left { font-size:12px;color:rgba(255,255,255,0.5); }
+  .footer-right { font-size:12px;color:rgba(255,255,255,0.35); }
+
+  @media (max-width:720px) {
+    .cover { flex-direction:column;min-height:0; }
+    .cover-inner { padding:40px 30px; }
+    .cover-right-bar, .cover-right-content { display:none; }
+    .cover-name { font-size:42px; }
+    .section { padding:36px 26px; }
+    .media-grid, .stats-grid, .stats-grid.cols-4 { grid-template-columns:1fr; }
+    .ig-grid { grid-template-columns:repeat(3,1fr); }
+    .sketch-grid { grid-template-columns:1fr; }
+    .proposal-item { flex-direction:column;align-items:flex-start;gap:6px; }
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- CAPA -->
+  <div class="cover">
+    <div class="cover-left"></div>
+    <div class="cover-accent"></div>
+    <div class="cover-right-bar"></div>
+    <div class="cc1"></div><div class="cc2"></div>
+    <div class="cover-inner">
+      <span class="cover-tag">Proposta de Apoio Técnico · Temporadas 2026 e 2027</span>
+      <div class="cover-name">Luca Dias</div>
+      <div class="cover-sub">Piloto Cadete — Kart</div>
+      <div class="cover-cat">Categoria Cadete (9–11 anos) · Homologado pela Federação de Automobilismo do Ceará · Filiado à CBA</div>
+      <div class="cover-badges">
+        <span class="badge">Líder Campeonato Cearense de Kart 2026</span>
+        <span class="badge">Líder Copa Fortaleza de Kart 2026</span>
+      </div>
+      <div class="ask-badge">Apoio solicitado: 1 capacete cadete homologado</div>
+      <div class="cover-to">
+        Apresentado a
+        <strong>Arai</strong>
+      </div>
+    </div>
+    <div class="cover-right-content">
+      <div class="cover-right-season">Temporadas</div>
+      <div class="cover-right-num">2026–27</div>
+      <div style="width:32px;height:2px;background:rgba(255,255,255,0.4);margin:12px auto;"></div>
+      <div class="cover-right-label">Ceará<br>Brasil</div>
+    </div>
+  </div>
+
+  <!-- 01 - PERFIL -->
+  <div class="section">
+    <div class="section-tag-wrap"><span class="section-tag">01 · Perfil do Piloto</span><img class="watermark" src="../../assets/logo-ld30-dark.png" alt="LD30" /></div>
+    <div class="red-bar"></div>
+    <div class="section-title">Do improviso na Paraíba ao kart que ressurgiu no Ceará</div>
+    <p class="section-body">
+      Luca Dias tem 9 anos e compete na categoria Cadete. Começou a correr de kart aos 7 anos — numa
+      época em que o Ceará vivia um vazio no esporte: o Kartódromo do Eusébio, principal palco do
+      estado, havia fechado, e não existia categoria Mirim em atividade por aqui. Para continuar
+      competindo, a família passou a viajar até o Kartódromo Internacional Paladino, em Conde (PB) —
+      uma solução que funcionava na pista, mas esbarrava direto na logística: horas de viagem, custo
+      de deslocamento e hospedagem a cada etapa.
+    </p>
+    <p class="section-body" style="margin-top:14px;">
+      O kart cearense começou a ressurgir no ano passado, com a retomada da Copa Fortaleza de Kart (CFK)
+      no Kartódromo Marcelino, em Morada Nova. Neste ano o movimento engrenou de vez: o Campeonato
+      Cearense de Kart voltou a ser disputado, agora no novo KartClube Premium (Caucaia), dando à
+      categoria estrutura, visibilidade e um calendário mensal consistente. Na categoria Cadete
+      especificamente, o pelotão ainda é pequeno — <span class="hl">hoje 7 competidores por etapa</span>
+      — mas vem crescendo a cada rodada, sinal de que o kart cearense está em reconstrução. O evento como
+      um todo, somando todas as categorias em disputa no mesmo dia, já reúne público estimado em
+      milhares de espectadores por etapa.
+    </p>
+    <p class="section-body" style="margin-top:14px;">
+      Nesse cenário, Luca lidera hoje simultaneamente o <span class="hl">Campeonato Cearense de Kart
+      2026</span> e a <span class="hl">Copa Fortaleza de Kart 2026</span>, com resultado sustentado em
+      todos os locais onde já correu — o histórico completo, corrida a corrida, está na próxima seção.
+    </p>
+
+    <!-- MÍDIA ESPONTÂNEA -->
+    <div style="margin-top:28px;">
+      <p style="font-size:10px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#1A252F;margin-bottom:6px;">Cobertura de mídia espontânea já conquistada</p>
+      <p class="section-body" style="margin-bottom:14px;">
+        Mídia espontânea (earned media) é o selo de credibilidade que nenhuma verba de publicidade compra
+        sozinha: veículos e editorias independentes já validaram a trajetória de Luca, o que reduz o risco
+        de associação da marca e reforça a prova social diante de outras famílias e patrocinadores.
+      </p>
+      <div class="cite-list">
+        <div class="cite-item">
+          <div class="cite-outlet">Globo Esporte CE · Globoplay</div>
+          <a class="cite-title" href="https://globoplay.globo.com/v/12950290/" target="_blank" rel="noopener">Menino de sete anos dá um baile no kart no Ceará</a>
+        </div>
+        <div class="cite-item">
+          <div class="cite-outlet">Motor em Ação</div>
+          <a class="cite-title" href="https://www.motoremacao.com.br/noticia/luca-dias-vence-a-3-etapa-e-permanece-na-lideranca-do-campeonato-cearense-de-kart-2026" target="_blank" rel="noopener">Luca Dias vence a 3ª etapa e permanece na liderança do Campeonato Cearense de Kart 2026</a>
+        </div>
+        <div class="cite-item">
+          <div class="cite-outlet">Portal KartMotor</div>
+          <a class="cite-title" href="https://kartmotor.com.br/noticias/campeonato-cearense-realizou-sua-3a-etapa-do-ano-com-disputas-em-quatro-categorias-43238" target="_blank" rel="noopener">Campeonato Cearense realizou sua 3ª etapa do ano com disputas em quatro categorias</a>
+        </div>
+        <div class="cite-item">
+          <div class="cite-outlet">Portal KartMotor</div>
+          <a class="cite-title" href="https://kartmotor.com.br/noticias/kartismo-cearense-celebra-a-chegada-de-uma-nova-safra-as-vesperas-da-estreia-do-estadual-42879" target="_blank" rel="noopener">Kartismo cearense celebra a chegada de uma nova safra às vésperas da estreia do estadual</a>
+        </div>
+        <div class="cite-item">
+          <div class="cite-outlet">CarrosECorridas.com.br</div>
+          <div class="cite-title" style="color:#5D6D7E;font-weight:normal;">Maior portal de automobilismo do Ceará — acompanhamento regular das etapas e resultados do piloto.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 - HISTÓRICO -->
+  <div class="section" style="background:#FBFBFB;">
+    <div class="section-tag-wrap"><span class="section-tag">02 · Histórico de Corridas</span><img class="watermark" src="../../assets/logo-ld30-dark.png" alt="LD30" /></div>
+    <div class="red-bar"></div>
+    <div class="section-title">Resultado consistente, etapa a etapa</div>
+    <p class="section-body">
+      Campeonatos regionais (Ceará e Paraíba) — não nacionais. O que chama atenção não é um título
+      isolado, mas a consistência: pódio ou vitória em praticamente todas as etapas disputadas até aqui.
+    </p>
+
+    <div class="etapa-list">
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div><div class="etapa-champ">Campeonato Paraibano</div><div class="etapa-local">Kartódromo Paladino, Conde, PB · Mar/2025</div></div>
+          <div class="etapa-final">P5</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P2</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge dnf"><span class="lbl">Corrida 2</span><span class="val">DNF</span> · problema na corrente</span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div><div class="etapa-champ">Copa Fortaleza de Kart</div><div class="etapa-local">Kartódromo Marcelino, Morada Nova, CE · Abr/2025</div></div>
+          <div class="etapa-final win">P1</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div><div class="etapa-champ">Copa Fortaleza de Kart</div><div class="etapa-local">Kartódromo Marcelino, Morada Nova, CE · Mai/2025</div></div>
+          <div class="etapa-final win">P1</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div><div class="etapa-champ">Copa Fortaleza de Kart</div><div class="etapa-local">Kartódromo Marcelino, Morada Nova, CE · Set/2025</div></div>
+          <div class="etapa-final win">P1</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div><div class="etapa-champ">Copa Fortaleza de Kart</div><div class="etapa-local">Kartódromo Marcelino, Morada Nova, CE · Out/2025</div></div>
+          <div class="etapa-final win">P1</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div>
+            <div class="etapa-champ">Copa Fortaleza de Kart</div>
+            <div class="etapa-local">Kartódromo Marcelino, Morada Nova, CE · Dez/2025</div>
+            <div class="etapa-note">Última etapa da temporada — encerrou como campeão da CFK 2025 (competição regional)</div>
+          </div>
+          <div class="etapa-final">P2</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge"><span class="lbl">Corrida 2</span><span class="val">P2</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div>
+            <div class="etapa-champ">Campeonato Cearense de Kart</div>
+            <div class="etapa-local">KartClube Premium, Caucaia, CE · Mar/2026</div>
+            <div class="etapa-note">Corrida 3 vale pontos do campeonato</div>
+          </div>
+          <div class="etapa-final">P2</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
+          <span class="race-badge"><span class="lbl">Corrida 3</span><span class="val">P2</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div><div class="etapa-champ">Copa Fortaleza de Kart</div><div class="etapa-local">Kartódromo Marcelino, Morada Nova, CE · Abr/2026</div></div>
+          <div class="etapa-final win">P1</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 3</span><span class="val">P1</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div>
+            <div class="etapa-champ">Campeonato Cearense de Kart</div>
+            <div class="etapa-local">KartClube Premium, Caucaia, CE · Mai/2026</div>
+            <div class="etapa-note">Corrida 3 vale pontos do campeonato</div>
+          </div>
+          <div class="etapa-final win">P1</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 1</span><span class="val">P1</span></span>
+          <span class="race-badge"><span class="lbl">Corrida 2</span><span class="val">P2</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 3</span><span class="val">P1</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div><div class="etapa-champ">Copa Fortaleza de Kart</div><div class="etapa-local">Kartódromo Marcelino, Morada Nova, CE · Mai/2026</div></div>
+          <div class="etapa-final">P3</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge dnf"><span class="lbl">Corrida 1</span><span class="val">DNF</span> · quebra mecânica</span>
+          <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 3</span><span class="val">P1</span></span>
+        </div>
+      </div>
+
+      <div class="etapa-card">
+        <div class="etapa-head">
+          <div>
+            <div class="etapa-champ">Campeonato Cearense de Kart</div>
+            <div class="etapa-local">KartClube Premium, Caucaia, CE · Jun/2026</div>
+            <div class="etapa-note">Líder do campeonato em andamento · Corrida 3 vale pontos do campeonato</div>
+          </div>
+          <div class="etapa-final win">P1</div>
+        </div>
+        <div class="race-badges">
+          <span class="race-badge win"><span class="lbl">Qualy</span><span class="val">P1</span></span>
+          <span class="race-badge"><span class="lbl">Corrida 1</span><span class="val">P5</span> · problema na corrente</span>
+          <span class="race-badge win"><span class="lbl">Corrida 2</span><span class="val">P1</span></span>
+          <span class="race-badge win"><span class="lbl">Corrida 3</span><span class="val">P1</span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-icon">→</div>
+      <div class="insight-text">
+        A disputa de Luca na <strong>Copa do Nordeste</strong> e na <strong>Copa do Brasil de Kart 2027</strong>
+        já está confirmada — o próximo degrau natural da carreira, com um salto direto de audiência
+        regional para nacional. O apoio da Arai entra exatamente nesse momento de expansão, ampliando a
+        exposição da marca para um público bem maior, e pode viabilizar ainda uma vaga no
+        <strong>Brasileiro de Kart</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 - AUDIÊNCIA -->
+  <div class="section">
+    <div class="section-tag-wrap"><span class="section-tag">03 · Audiência e Alcance</span><img class="watermark" src="../../assets/logo-ld30-dark.png" alt="LD30" /></div>
+    <div class="red-bar"></div>
+    <div class="section-title">Presença em pista e nas redes</div>
+    <p class="section-body">
+      O Campeonato Cearense de Kart estreou a temporada 2026 com <span class="hl">15.000 espectadores
+      presenciais na primeira etapa</span>, e vem mantendo consistentemente <span class="hl">mais de
+      5.000 espectadores por etapa</span> desde então (somando todas as categorias do evento) — além do
+      público que acompanha pela internet. A Copa Fortaleza de Kart (CFK) acrescenta mais etapas, com
+      público concentrado nos familiares e na comunidade do kart. Ao longo da temporada 2026, Luca
+      disputa <span class="hl">cerca de 30 corridas em 12 etapas</span> entre os dois campeonatos — cada
+      uma delas uma nova janela de exposição para quem estiver na lateral do kart, no capacete e no
+      macacão.
+    </p>
+
+    <div class="stats-grid cols-4">
+      <div class="stat-card">
+        <div class="stat-num">15.000</div>
+        <div class="stat-label">Espectadores na etapa de estreia do Cearense 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5.000+</div>
+        <div class="stat-label">Espectadores presenciais em cada etapa seguinte</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30</div>
+        <div class="stat-label">Corridas disputadas por Luca na temporada 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Etapas totais entre CFK e Campeonato Cearense</div>
+      </div>
+    </div>
+    <p class="fonte">Público presencial estimado pela organização do evento, por etapa, somando todas as categorias em disputa. Não inclui o público que acompanha pela internet.</p>
+
+    <!-- INSTAGRAM -->
+    <div style="margin-top:26px;">
+      <p style="font-size:10px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#1A252F;margin-bottom:6px;">Presença digital — Instagram do piloto</p>
+      <p class="section-body" style="margin-bottom:18px;">
+        A conta <span class="hl">@lucadias30</span> é administrada exclusivamente pelos pais, focada em
+        kart, com o objetivo declarado de construção de marca do atleta. Não é uma conta pessoal: é uma
+        operação editorial deliberada, com fotos e vídeos de cada etapa — exatamente onde a marca Arai
+        apareceria no capacete e no macacão. Nos últimos 6 meses o canal somou <span class="hl">31.000
+        visualizações</span>, e a base de seguidores segue em crescimento.
+      </p>
+      <div class="ig-grid">
+        <div class="ig-bar-wrap">
+          <div class="ig-bar-label">Jan/26</div>
+          <div class="ig-bar-bg"><div class="ig-bar-fill" style="width:45%"></div></div>
+          <div class="ig-bar-val">4.900</div>
+        </div>
+        <div class="ig-bar-wrap">
+          <div class="ig-bar-label">Fev/26</div>
+          <div class="ig-bar-bg"><div class="ig-bar-fill" style="width:13%"></div></div>
+          <div class="ig-bar-val">1.400</div>
+        </div>
+        <div class="ig-bar-wrap">
+          <div class="ig-bar-label">Mar/26</div>
+          <div class="ig-bar-bg"><div class="ig-bar-fill" style="width:41%"></div></div>
+          <div class="ig-bar-val">4.500</div>
+        </div>
+        <div class="ig-bar-wrap">
+          <div class="ig-bar-label">Abr/26</div>
+          <div class="ig-bar-bg"><div class="ig-bar-fill" style="width:40%"></div></div>
+          <div class="ig-bar-val">4.400</div>
+        </div>
+        <div class="ig-bar-wrap">
+          <div class="ig-bar-label">Mai/26</div>
+          <div class="ig-bar-bg"><div class="ig-bar-fill" style="width:100%"></div></div>
+          <div class="ig-bar-val">11.000</div>
+        </div>
+        <div class="ig-bar-wrap">
+          <div class="ig-bar-label">Jun/26</div>
+          <div class="ig-bar-bg"><div class="ig-bar-fill" style="width:44%"></div></div>
+          <div class="ig-bar-val">4.800</div>
+        </div>
+      </div>
+      <div class="ig-total-box">
+        <div class="ig-total-left">Total de visualizações · 6 meses (Jan–Jun/26) · Média: 5.167/mês</div>
+        <div class="ig-total-right">31.000 views</div>
+      </div>
+
+      <p style="font-size:10px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#1A252F;margin:24px 0 6px;">Snapshot mais recente · últimos 30 dias (atualizado em 28/07/2026)</p>
+      <div class="stats-grid" style="margin:14px 0 0;">
+        <div class="stat-card">
+          <div class="stat-num">2.947</div>
+          <div class="stat-label">Seguidores</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">13.929</div>
+          <div class="stat-label">Visualizações nos últimos 30 dias</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4.188</div>
+          <div class="stat-label">Contas únicas alcançadas</div>
+        </div>
+      </div>
+      <p class="fonte">Fonte: Painel profissional do Instagram (Meta Business Suite), 28/07/2026. 43,3% do alcance vem de não seguidores — sinal de que o conteúdo já circula além da base atual, ampliando o potencial de exposição da marca.</p>
+    </div>
+  </div>
+
+  <!-- 04 - O PEDIDO -->
+  <div class="section" style="background:#FBFBFB;">
+    <div class="section-tag-wrap"><span class="section-tag">04 · O Pedido</span><img class="watermark" src="../../assets/logo-ld30-dark.png" alt="LD30" /></div>
+    <div class="red-bar"></div>
+    <div class="section-title">Um capacete Arai para viabilizar a participação</div>
+    <p class="section-body">
+      Este é um pedido de patrocínio técnico, objetivo e de baixo custo de entrada: apoio da Arai com
+      <span class="hl">um capacete cadete homologado</span>, dentro das normas exigidas pela Federação de
+      Automobilismo do Ceará (FAC) e pela CBA para a categoria, em troca de exposição de marca recorrente
+      em duas temporadas completas de competição. É o item mais fotografado do piloto — presente em cada
+      corrida, cada pódio e cada publicação.
+    </p>
+
+    <div class="insight-box">
+      <div class="insight-icon">★</div>
+      <div class="insight-text">
+        <strong>Por que pedimos justo à Arai:</strong> não é uma escolha aleatória entre fabricantes.
+        A Arai é reconhecida mundialmente pela engenharia de segurança e é referência entre pilotos
+        profissionais — o padrão que dá a Luca (e à família) a confiança necessária para dar o próximo
+        passo da carreira: as competições nacionais confirmadas para 2027. Vestir Arai desde a categoria
+        Cadete é também um sinal para o ambiente do kartismo de que esse padrão de exigência já faz
+        parte da trajetória do piloto.
+      </div>
+    </div>
+
+    <div class="ask-destaque">
+      <div class="ask-destaque-icon">🪖</div>
+      <div class="ask-destaque-text">
+        <strong>O que pedimos · o que a Arai recebe</strong>
+        Um capacete Arai homologado para competições de kart na categoria Cadete, fornecido para as
+        temporadas 2026 e 2027, com pintura personalizada trazendo a marca Arai em destaque permanente
+        — não um adesivo removível. Em troca, a marca ganha presença em três pontos de alta visibilidade
+        em cada corrida — descritos na próxima seção — e em todo o conteúdo publicado no Instagram do
+        piloto, com retorno de mídia e publicidade proporcional ao investimento.
+      </div>
+    </div>
+
+    <p class="section-body">
+      Segurança e performance andam juntas: vestir Arai desde cedo associa a marca ao mesmo padrão de
+      excelência que Luca já busca em cada etapa — e coloca o logo em um ativo esportivo em ascensão,
+      com resultado consistente e audiência comprovada.
+    </p>
+  </div>
+
+  <!-- 05 - ONDE A MARCA APARECE -->
+  <div class="section">
+    <div class="section-tag-wrap"><span class="section-tag">05 · Onde a Marca Aparece</span><img class="watermark" src="../../assets/logo-ld30-dark.png" alt="LD30" /></div>
+    <div class="red-bar"></div>
+    <div class="section-title">Macacão, capacete e laterais do kart</div>
+    <p class="section-body">
+      Três pontos de exposição em cada corrida, treino e foto de pódio — sempre nas posições de maior
+      visibilidade em câmeras frontais e traseiras.
+    </p>
+
+    <div class="sketch-grid">
+      <div>
+        <div class="sketch-label">Macacão e capacete — pista</div>
+        <div class="sketch-img"><img src="../../assets/portrait-1.jpeg" alt="Luca Dias de macacão e capacete"></div>
+        <div class="sketch-note">
+          <strong>Logo Arai no peito e nas costas</strong> do macacão de competição, e
+          <strong>pintura personalizada do capacete</strong> com a marca Arai em destaque permanente —
+          o item mais fotografado do piloto, presente em pódios, entrevistas e conteúdo para redes sociais.
+        </div>
+      </div>
+      <div>
+        <div class="sketch-label">Kart nº 30 — laterais</div>
+        <div class="sketch-img"><img src="../../assets/podium-1.jpeg" alt="Kart número 30 de Luca Dias"></div>
+        <div class="sketch-note">
+          <strong>Adesivo Arai nas laterais (sidepods)</strong> do kart nº 30, visível no grid, na pista
+          e em todo o material fotográfico e de vídeo das etapas. Arte final a ser desenvolvida em
+          conjunto com a equipe da Arai.
+        </div>
+      </div>
+    </div>
+
+    <div class="proposal-box">
+      <div class="proposal-box-title">Contrapartidas oferecidas à Arai</div>
+      <div class="proposal-item">
+        <span class="proposal-item-label">Logo no peito e nas costas do macacão de competição</span>
+        <span class="proposal-item-value">Temporadas 2026–27</span>
+      </div>
+      <div class="proposal-item">
+        <span class="proposal-item-label">Pintura personalizada do capacete, com a marca Arai em destaque permanente</span>
+        <span class="proposal-item-value">Permanente</span>
+      </div>
+      <div class="proposal-item">
+        <span class="proposal-item-label">Adesivo nas laterais (sidepods) do kart nº 30</span>
+        <span class="proposal-item-value">Temporadas 2026–27</span>
+      </div>
+      <div class="proposal-item">
+        <span class="proposal-item-label">Menções e marcações no Instagram @lucadias30</span>
+        <span class="proposal-item-value">Toda a temporada</span>
+      </div>
+      <div class="proposal-item">
+        <span class="proposal-item-label">Acesso a fotos e vídeos com a marca para uso em comunicação</span>
+        <span class="proposal-item-value">Liberação total</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 - FECHAMENTO -->
+  <div class="section">
+    <div class="section-tag-wrap"><span class="section-tag">06 · Próximos Passos</span><img class="watermark" src="../../assets/logo-ld30-dark.png" alt="LD30" /></div>
+    <div class="red-bar"></div>
+    <div class="section-title">Um capacete hoje, visibilidade por muito tempo!</div>
+
+    <div class="closing-box">
+      <div class="closing-title">Um ativo esportivo em ascensão, com espaço de marca disponível agora</div>
+      <p class="closing-body">
+        Luca lidera hoje dois campeonatos no Ceará, tem resultado consistente etapa após etapa e uma
+        audiência digital em crescimento. É o momento certo para a Arai entrar como parceira técnica,
+        com baixo investimento e retorno de mídia recorrente — logo antes do salto confirmado para a
+        Copa do Nordeste e a Copa do Brasil de Kart em 2027, quando essa exposição passa a alcançar um
+        público nacional.
+      </p>
+    </div>
+
+    <p class="section-body" style="text-align:center;margin-top:20px;font-size:13.5px;">
+      Estamos à disposição para enviar mais fotos, vídeos e detalhes, e ajustar juntos os termos deste apoio.
+    </p>
+    <p class="section-body" style="text-align:center;margin-top:10px;font-size:13.5px;">
+      Obrigado pela atenção e pelo tempo dedicado a esta proposta — ficamos na torcida para seguir esta
+      parceria com a Arai.
+    </p>
+    <div class="contact-row">
+      <a href="https://instagram.com/lucadias30" target="_blank" class="contact-btn primary">Instagram @lucadias30</a>
+      <a href="mailto:robertoalcantara@gmail.com" class="contact-btn ghost">robertoalcantara@gmail.com</a>
+    </div>
+  </div>
+
+  <div style="background:#F8F9FA;padding:16px 60px;display:flex;justify-content:center;border-top:1px solid #EAECEE;">
+    <img src="../../assets/logo-ld30-dark.png" alt="LD30" style="height:26px;object-fit:contain;opacity:0.18;filter:grayscale(1);" />
+  </div>
+  <div class="footer-bar">
+    <div class="footer-left">Luca Dias — Piloto Cadete · Federação de Automobilismo do Ceará (FAC) / CBA</div>
+    <div class="footer-right">Arai · Proposta de Apoio Técnico — Capacete Cadete</div>
+  </div>
+
+</div>
+</body>
+</html>
