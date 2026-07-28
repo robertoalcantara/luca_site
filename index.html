@@ -30,8 +30,10 @@
       <img src="assets/logo-ld30-dark.png" alt="LD30" style="height:80px; width:auto; display:block;">
     </div>
     <div style="display:flex; gap:28px; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600;">
+      <a href="#sec-historia" style="color:#f4f2f0; text-decoration:none; opacity:0.85;">História</a>
       <a href="#sec-resultados" style="color:#f4f2f0; text-decoration:none; opacity:0.85;">Resultados</a>
       <a href="#sec-galeria" style="color:#f4f2f0; text-decoration:none; opacity:0.85;">Galeria</a>
+      <a href="#sec-midia" style="color:#f4f2f0; text-decoration:none; opacity:0.85;">Na Mídia</a>
       <a href="https://instagram.com/lucadias30" target="_blank" style="color:{{ igColor }}; text-decoration:none;">@lucadias30</a>
     </div>
   </div>
@@ -39,8 +41,10 @@
   <!-- SCROLLSPY DOTS -->
   <div style="position:fixed; right:28px; top:50%; transform:translateY(-50%); z-index:50; display:flex; flex-direction:column; gap:14px;">
     <a href="#sec-hero" style="width:9px; height:9px; border-radius:50%; background:{{ dotHero }}; transition:all 0.35s ease; transform:{{ scaleHero }};"></a>
+    <a href="#sec-historia" style="width:9px; height:9px; border-radius:50%; background:{{ dotHistoria }}; transition:all 0.35s ease; transform:{{ scaleHistoria }};"></a>
     <a href="#sec-resultados" style="width:9px; height:9px; border-radius:50%; background:{{ dotResultados }}; transition:all 0.35s ease; transform:{{ scaleResultados }};"></a>
     <a href="#sec-galeria" style="width:9px; height:9px; border-radius:50%; background:{{ dotGaleria }}; transition:all 0.35s ease; transform:{{ scaleGaleria }};"></a>
+    <a href="#sec-midia" style="width:9px; height:9px; border-radius:50%; background:{{ dotMidia }}; transition:all 0.35s ease; transform:{{ scaleMidia }};"></a>
   </div>
 
   <!-- HERO -->
@@ -90,6 +94,25 @@
     <div style="position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.6; animation:heroLine 0.9s ease 1.2s both;">
       <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase;">Rolar</div>
       <div style="width:1px; height:28px; background:#f4f2f0;"></div>
+    </div>
+  </div>
+
+  <!-- HISTÓRIA -->
+  <div id="sec-historia" data-section="historia" data-screen-label="História" data-reveal="" style="scroll-snap-align:start; min-height:100vh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; opacity:0; transform:translateY(48px); transition:opacity 0.9s cubic-bezier(0.2,0.6,0.2,1), transform 0.9s cubic-bezier(0.2,0.6,0.2,1); padding:{{ padTight }};">
+    <div style="max-width:1100px; margin:0 auto; width:100%; display:flex; gap:60px; flex-wrap:wrap; align-items:center;">
+      <div style="flex:1 1 420px; min-width:280px;">
+        <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0s; font-size:{{ kickerSize }}; letter-spacing:{{ kickerLS }}; text-transform:uppercase; color:{{ accent }}; font-weight:700; margin-bottom:16px;">Nossa História</div>
+        <h2 data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.1s; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,3.6vw,44px); line-height:1.05; margin:0 0 26px; text-transform:uppercase;">A estrada antes da pista</h2>
+        <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.2s; color:rgba(244,242,240,0.8); font-size:14.5px; line-height:1.85; display:flex; flex-direction:column; gap:16px;">
+          <p style="margin:0;">Luca começou a correr de kart aos 7 anos. Na época, o Ceará vivia um vazio no esporte: o Kartódromo do Eusébio, principal palco do estado, tinha acabado de fechar, e não existia categoria Mirim em atividade por aqui.</p>
+          <p style="margin:0;">Não tinha pista, não tinha categoria — mas tinha vontade. A família decidiu ir atrás: a cada etapa, uma viagem até o Kartódromo Internacional Paladino, em Conde, na Paraíba. Horas de estrada, hospedagem, o cansaço de competir sempre fora de casa, só para o Luca poder fazer o que ama.</p>
+          <p style="margin:0;">No ano passado, o kart cearense começou a respirar de novo, com a volta da Copa Fortaleza de Kart no Kartódromo Marcelino, em Morada Nova. Neste ano, o movimento engrenou de vez: o Campeonato Cearense de Kart voltou a ser disputado, agora no KartClube Premium, em Caucaia.</p>
+          <p style="margin:0; color:#f4f2f0; font-weight:600;">Hoje Luca não precisa mais atravessar estado para competir — e lidera dois campeonatos ao mesmo tempo, em casa. Essa é a história por trás do número 30.</p>
+        </div>
+      </div>
+      <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.3s; flex:1 1 320px; min-width:260px;">
+        <img src="assets/portrait-1.jpeg" alt="Luca Dias" style="width:100%; height:520px; object-fit:cover; border-radius:{{ radius }}; display:block;">
+      </div>
     </div>
   </div>
 
@@ -305,6 +328,25 @@
     </div>
   </div>
 
+  <!-- NA MÍDIA -->
+  <div id="sec-midia" data-section="midia" data-screen-label="Na Mídia" data-reveal="" style="scroll-snap-align:start; min-height:100vh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; opacity:0; transform:translateY(48px); transition:opacity 0.9s cubic-bezier(0.2,0.6,0.2,1), transform 0.9s cubic-bezier(0.2,0.6,0.2,1); padding:{{ padTight }}; background:#141415;">
+    <div style="max-width:900px; margin:0 auto; width:100%;">
+      <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0s; font-size:{{ kickerSize }}; letter-spacing:{{ kickerLS }}; text-transform:uppercase; color:{{ accent }}; font-weight:700; margin-bottom:16px;">Na Mídia</div>
+      <h2 data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.1s; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,3.6vw,46px); line-height:1.05; margin:0 0 12px; text-transform:uppercase;">O que já falaram do Luca</h2>
+      <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.15s; font-size:13px; color:rgba(244,242,240,0.5); margin-bottom:20px;">Cobertura espontânea, sem investimento em imprensa — construída corrida a corrida.</div>
+
+      <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.2s; display:flex; flex-direction:column;">
+        <sc-for list="{{ mediaCitations }}" as="m" hint-placeholder-count="4">
+          <a href="{{ m.url }}" target="_blank" style="display:flex; flex-direction:column; gap:6px; padding:20px 4px; border-top:1px solid rgba(244,242,240,0.1); text-decoration:none; color:#f4f2f0;">
+            <div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:{{ accent }}; font-weight:700;">{{ m.outlet }}</div>
+            <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:800; font-size:17px; line-height:1.3; text-transform:none;">{{ m.title }} →</div>
+          </a>
+        </sc-for>
+        <div style="border-top:1px solid rgba(244,242,240,0.1); border-bottom:1px solid rgba(244,242,240,0.1); padding:20px 4px; font-size:12px; opacity:0.4;">CarrosECorridas.com.br — acompanhamento regular das etapas e resultados do piloto.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <div data-screen-label="Footer" style="padding:60px 6vw; border-top:1px solid rgba(244,242,240,0.08); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
     <div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:16px; letter-spacing:1px;">LUCA <span style="color:{{ accent }};">DIAS</span> · Nº 30</div>
@@ -443,7 +485,7 @@ const RESULTS_BASE = [
   {
     month: '03/2026', champ: 'Campeonato Cearense de Kart', local: 'KartClube Premium, Caucaia, CE', category: 'Cadete',
     result: 'P2', obs: 'Corrida 3 vale pontos do campeonato',
-    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P1'], ['Corrida 3', 'P2']],
+    badgesRaw: [['Qualy', 'P2'], ['Corrida 1', 'P1'], ['Corrida 2', 'P1'], ['Corrida 3', 'P2']],
     photos: []
   },
   {
@@ -470,7 +512,7 @@ const RESULTS_BASE = [
   {
     month: '05/2026', champ: 'Copa Fortaleza de Kart', local: 'Kartódromo Marcelino, Morada Nova, CE', category: 'Cadete',
     result: 'P3', obs: '',
-    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'Quebrou'], ['Corrida 2', 'P1'], ['Corrida 3', 'P1']],
+    badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'DNF - Problema na corrente'], ['Corrida 2', 'P1'], ['Corrida 3', 'P1']],
     photos: [{ bg: "url('assets/cfk-2026-etapa2.jpeg')" }]
   },
   {
@@ -484,6 +526,13 @@ const RESULTS_BASE = [
 function getRaces() {
   return RESULTS_BASE.filter((r) => r.type !== 'milestone');
 }
+
+const MEDIA_CITATIONS = [
+  { outlet: 'Globo Esporte CE · Globoplay', title: 'Menino de sete anos dá um baile no kart no Ceará', url: 'https://globoplay.globo.com/v/12950290/' },
+  { outlet: 'Motor em Ação', title: 'Luca Dias vence a 3ª etapa e permanece na liderança do Campeonato Cearense de Kart 2026', url: 'https://www.motoremacao.com.br/noticia/luca-dias-vence-a-3-etapa-e-permanece-na-lideranca-do-campeonato-cearense-de-kart-2026' },
+  { outlet: 'Portal KartMotor', title: 'Campeonato Cearense realizou sua 3ª etapa do ano com disputas em quatro categorias', url: 'https://kartmotor.com.br/noticias/campeonato-cearense-realizou-sua-3a-etapa-do-ano-com-disputas-em-quatro-categorias-43238' },
+  { outlet: 'Portal KartMotor', title: 'Kartismo cearense celebra a chegada de uma nova safra às vésperas da estreia do estadual', url: 'https://kartmotor.com.br/noticias/kartismo-cearense-celebra-a-chegada-de-uma-nova-safra-as-vesperas-da-estreia-do-estadual-42879' }
+];
 
 const CURRENT_STANDINGS = [
   { champ: 'Cearense 2026', result: 'P1' },
@@ -592,7 +641,7 @@ class Component extends DCLogic {
     }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
     revealEls.forEach((el) => revealIo.observe(el));
 
-    const sectionOrder = ['hero', 'resultados', 'galeria'];
+    const sectionOrder = ['hero', 'historia', 'resultados', 'galeria', 'midia'];
     const sectionEls = root.querySelectorAll('[data-section]');
     const spyIo = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -697,9 +746,12 @@ class Component extends DCLogic {
       restDuration: Math.max(16, rest.length * 5.5),
       trophyPath: TROPHY_PATH,
       rootRef: (el) => { this.rootEl = el; },
+      mediaCitations: MEDIA_CITATIONS,
       dotHero: dot('hero'), scaleHero: scale('hero'),
+      dotHistoria: dot('historia'), scaleHistoria: scale('historia'),
       dotResultados: dot('resultados'), scaleResultados: scale('resultados'),
       dotGaleria: dot('galeria'), scaleGaleria: scale('galeria'),
+      dotMidia: dot('midia'), scaleMidia: scale('midia'),
       lightboxSrc: this.state.lightboxSrc,
       lightboxBg: this.state.lightboxSrc ? "url('" + this.state.lightboxSrc.replace(/^url\((['"]?)(.*?)\1\)$/, '$2') + "')" : '',
       hasLightbox: !!this.state.lightboxSrc,
