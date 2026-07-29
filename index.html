@@ -105,7 +105,7 @@
         <h2 data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.1s; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,3.6vw,44px); line-height:1.05; margin:0 0 26px; text-transform:uppercase;">A estrada antes da pista</h2>
         <div data-stagger="" style="opacity:0; transform:translateY(20px); transition:opacity 0.7s cubic-bezier(0.2,0.6,0.2,1), transform 0.7s cubic-bezier(0.2,0.6,0.2,1); transition-delay:0.2s; color:rgba(244,242,240,0.8); font-size:14.5px; line-height:1.85; display:flex; flex-direction:column; gap:16px;">
           <p style="margin:0;">Luca começou a correr de kart aos 7 anos. Na época, o Ceará vivia um vazio no esporte: o Kartódromo do Eusébio, principal palco do estado, tinha acabado de fechar, e não existia categoria Mirim em atividade por aqui.</p>
-          <p style="margin:0;">Não tinha pista, não tinha categoria — mas tinha vontade. A família decidiu ir atrás: a cada etapa, uma viagem até o Kartódromo Internacional Paladino, em Conde, na Paraíba. Horas de estrada, hospedagem, o cansaço de competir sempre fora de casa, só para o Luca poder fazer o que ama.</p>
+          <p style="margin:0;">Não tinha pista, não tinha categoria — mas tinha vontade. Em 2024, a família foi uma vez ao Kartódromo Internacional Paladino, em Conde, na Paraíba, só para testar: ver se Luca levava jeito em um kartódromo profissional. O resultado foi bom o suficiente para decidirem ir além — e em 2025 o Luca disputou duas etapas por lá.</p>
           <p style="margin:0;">No ano passado, o kart cearense começou a respirar de novo, com a volta da Copa Fortaleza de Kart no Kartódromo Marcelino, em Morada Nova. Neste ano, o movimento engrenou de vez: o Campeonato Cearense de Kart voltou a ser disputado, agora no KartClube Premium, em Caucaia.</p>
           <p style="margin:0; color:#f4f2f0; font-weight:600;">Hoje Luca não precisa mais atravessar estado para competir — e lidera dois campeonatos ao mesmo tempo, em casa. Essa é a história por trás do número 30.</p>
         </div>
@@ -531,7 +531,8 @@ const MEDIA_CITATIONS = [
   { outlet: 'Globo Esporte CE · Globoplay', title: 'Menino de sete anos dá um baile no kart no Ceará', url: 'https://globoplay.globo.com/v/12950290/' },
   { outlet: 'Motor em Ação', title: 'Luca Dias vence a 3ª etapa e permanece na liderança do Campeonato Cearense de Kart 2026', url: 'https://www.motoremacao.com.br/noticia/luca-dias-vence-a-3-etapa-e-permanece-na-lideranca-do-campeonato-cearense-de-kart-2026' },
   { outlet: 'Portal KartMotor', title: 'Campeonato Cearense realizou sua 3ª etapa do ano com disputas em quatro categorias', url: 'https://kartmotor.com.br/noticias/campeonato-cearense-realizou-sua-3a-etapa-do-ano-com-disputas-em-quatro-categorias-43238' },
-  { outlet: 'Portal KartMotor', title: 'Kartismo cearense celebra a chegada de uma nova safra às vésperas da estreia do estadual', url: 'https://kartmotor.com.br/noticias/kartismo-cearense-celebra-a-chegada-de-uma-nova-safra-as-vesperas-da-estreia-do-estadual-42879' }
+  { outlet: 'Portal KartMotor', title: 'Kartismo cearense celebra a chegada de uma nova safra às vésperas da estreia do estadual', url: 'https://kartmotor.com.br/noticias/kartismo-cearense-celebra-a-chegada-de-uma-nova-safra-as-vesperas-da-estreia-do-estadual-42879' },
+  { outlet: 'Carros e Corridas', title: 'Luca Dias vence terceira etapa e assume liderança da Cadete', url: 'https://carrosecorridas.com.br/luca-dias-vence-terceira-etapa-e-assume-lideranca-da-cadete/' }
 ];
 
 const CURRENT_STANDINGS = [
@@ -689,6 +690,7 @@ class Component extends DCLogic {
     this._onWheel = (e) => {
       if (e.target.closest('[data-hscroll], [data-autoscroll-y], [data-autoscroll-x]')) return;
       if (wheelLock) { e.preventDefault(); return; }
+      if (Math.abs(e.deltaY) < 3) return;
       const curEl = root.querySelector('[data-section="' + this.state.active + '"]');
       if (curEl) {
         const rect = curEl.getBoundingClientRect();
