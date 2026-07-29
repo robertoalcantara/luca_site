@@ -129,9 +129,8 @@
   .proposal-item-value { font-weight:bold;color:#fff;background:rgba(255,255,255,0.16);padding:3px 14px;border-radius:20px;font-size:11px;white-space:nowrap;flex-shrink:0; }
 
   /* FOTO DE FECHAMENTO */
-  .closing-photo-wrap { display:flex;justify-content:center;margin:28px 0 8px; }
-  .closing-photo { width:180px;height:auto;border-radius:16px;box-shadow:0 10px 28px rgba(0,0,0,0.2);border:5px solid #fff;outline:1px solid #EAECEE;display:block; }
-  .closing-photo-caption { text-align:center;font-size:11.5px;color:#95A5A6;margin-top:12px;font-style:italic; }
+  .closing-photo { width:130px;height:auto;border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,0.18);border:4px solid #fff;outline:1px solid #EAECEE;display:block;margin:0 auto; }
+  .closing-photo-caption { text-align:center;font-size:10.5px;color:#95A5A6;margin-top:10px;font-style:italic;line-height:1.4; }
 
   /* IMAGENS */
   .sketch-grid { display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:22px; }
@@ -142,9 +141,11 @@
   .sketch-label { font-size:10px;font-weight:bold;text-transform:uppercase;letter-spacing:1.5px;color:#7F8C8D;text-align:center;margin-bottom:12px; }
 
   /* FECHAMENTO */
-  .closing-box { border:2px solid #C0392B;border-radius:12px;padding:34px 40px;margin:22px 0;text-align:center; }
+  .closing-box { border:2px solid #C0392B;border-radius:12px;padding:30px 36px;margin:22px 0;display:flex;align-items:center;gap:30px; }
+  .closing-box-text { flex:1;min-width:0; }
   .closing-title { font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:24px;color:#C0392B;margin-bottom:14px; }
-  .closing-body { font-size:14px;color:#5D6D7E;line-height:1.85;max-width:580px;margin:0 auto; }
+  .closing-body { font-size:14px;color:#5D6D7E;line-height:1.85;margin:0; }
+  .closing-photo-side { flex:0 0 150px;text-align:center; }
   .contact-row { display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px; }
   .contact-btn { display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:bold;font-size:12.5px;letter-spacing:.3px;padding:12px 22px;border-radius:24px; }
   .contact-btn.primary { background:#C0392B;color:#fff; }
@@ -163,6 +164,7 @@
     .ig-grid { grid-template-columns:repeat(3,1fr); }
     .sketch-grid { grid-template-columns:1fr; }
     .proposal-item { flex-direction:column;align-items:flex-start;gap:6px; }
+    .closing-box { flex-direction:column;text-align:center; }
   }
 </style>
 </head>
@@ -675,24 +677,23 @@ A temporada 2026 fecha com disputas na Paraíba, além do Campeonato Cearense de
     <div class="section-title">Um capacete hoje, visibilidade por muito tempo!</div>
 
     <div class="closing-box">
-      <div class="closing-title">Um ativo esportivo em ascensão, com espaço de marca disponível agora</div>
-      <p class="closing-body">
-        Luca lidera hoje dois campeonatos no Ceará, tem resultado consistente etapa após etapa e uma
-        audiência digital em crescimento. É o momento certo para a Arai entrar como parceira técnica,
-        com baixo investimento e retorno de mídia recorrente — logo antes do salto planejado para a
-        Copa do Nordeste, a Copa do Brasil de Kart e o Campeonato Brasileiro de Kart em 2027, quando
-        essa exposição passa a alcançar um público nacional.
-      </p>
-    </div>
-
-    <div class="closing-photo-wrap">
-      <div style="text-align:center;">
+      <div class="closing-box-text">
+        <div class="closing-title">Um ativo esportivo em ascensão, com espaço de marca disponível agora</div>
+        <p class="closing-body">
+          Luca lidera hoje dois campeonatos no Ceará, tem resultado consistente etapa após etapa e uma
+          audiência digital em crescimento. É o momento certo para a Arai entrar como parceira técnica,
+          com baixo investimento e retorno de mídia recorrente — logo antes do salto planejado para a
+          Copa do Nordeste, a Copa do Brasil de Kart e o Campeonato Brasileiro de Kart em 2027, quando
+          essa exposição passa a alcançar um público nacional.
+        </p>
+      </div>
+      <div class="closing-photo-side">
         <img src="../../assets/portrait-wink.jpeg" alt="Luca Dias" class="closing-photo">
         <div class="closing-photo-caption">Luca Dias — sempre pronto para a próxima etapa.</div>
       </div>
     </div>
 
-    <p class="section-body" style="text-align:center;margin-top:8px;font-size:13.5px;">
+    <p class="section-body" style="text-align:center;margin-top:20px;font-size:13.5px;">
       Estamos à disposição para enviar mais fotos, vídeos e detalhes, e ajustar juntos os termos deste apoio.
     </p>
     <p class="section-body" style="text-align:center;margin-top:10px;font-size:13.5px;">
