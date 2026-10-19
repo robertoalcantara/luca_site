@@ -550,7 +550,7 @@ const RESULTS_BASE = [
     ]
   },
   {
-    month: '10/2026', champ: 'Campeonato Cearense de Kart', local: 'KartClube Premium, Caucaia, CE', category: 'Cadete',
+    month: '10/2026', day: 10, champ: 'Campeonato Cearense de Kart', local: 'KartClube Premium, Caucaia, CE', category: 'Cadete',
     result: 'P1', obs: 'Corrida 3 vale pontos do campeonato',
     badgesRaw: [['Qualy', 'P1'], ['Corrida 1', 'P1'], ['Corrida 2', 'P1'], ['Corrida 3', 'P1']],
     photos: [
@@ -561,6 +561,12 @@ const RESULTS_BASE = [
       { bg: "url('assets/cearense-etapa5-5.jpg')" },
       { bg: "url('assets/cearense-etapa5-6.jpg')" }
     ]
+  },
+  {
+    month: '10/2026', day: 17, champ: 'Campeonato Paraibano', local: 'Kartódromo Internacional Paladino, Conde, PB', category: 'Cadete',
+    result: 'P3', obs: 'Motor com problemas no quali, troca do motor, penalizado',
+    badgesRaw: [['Qualy', 'P13'], ['Corrida 1', 'P4'], ['Corrida 2', 'P4'], ['Corrida 3', 'P3']],
+    photos: [{ bg: "url('assets/paraibano-2026-etapa5-1.jpg')" }]
   }
 ];
 
@@ -609,7 +615,7 @@ function getTotals() {
 function buildResults(accent) {
   const list = RESULTS_BASE.map((r, i) => {
     const [mm, yy] = r.month.split('/').map(Number);
-    const baseSort = yy * 12 + mm;
+    const baseSort = yy * 12 + mm + (r.day || 0) / 100; // "day" é opcional: só desempata etapas do mesmo mês
     if (r.type === 'milestone') {
       const mPhotos = r.photos || [];
       const mHasManyPhotos = mPhotos.length > 3;
